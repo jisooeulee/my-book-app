@@ -17,10 +17,10 @@ class TabBarController: UITabBarController {
         self.tabBar.tintColor = .red
         self.tabBar.unselectedItemTintColor = .gray
         
-        let mainVC = UINavigationController(rootViewController: ViewController())
-        mainVC.tabBarItem.selectedImage = UIImage(systemName: "star")
-        mainVC.tabBarItem.title = "Home"
-        mainVC.tabBarItem.image = UIImage(systemName: "star.fill")
+        let homeVC = UINavigationController(rootViewController: HomeViewController())
+        homeVC.tabBarItem.selectedImage = UIImage(systemName: "star")
+        homeVC.tabBarItem.title = "Home"
+        homeVC.tabBarItem.image = UIImage(systemName: "star.fill")
         
         let readBookListView = UIViewController()
         readBookListView.view.backgroundColor = .orange
@@ -34,7 +34,7 @@ class TabBarController: UITabBarController {
         settingView.tabBarItem.title = "Setting"
         settingView.tabBarItem.image = UIImage(systemName: "gearshape.fill")
         
-        viewControllers = [mainVC, readBookListView, settingView]
+        viewControllers = [homeVC, readBookListView, settingView]
     }
     
 }
