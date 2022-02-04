@@ -9,23 +9,33 @@
 /* Begin PBXBuildFile section */
 		E6846EE227ACD1FF004DE9A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846EE127ACD1FF004DE9A5 /* AppDelegate.swift */; };
 		E6846EE427ACD1FF004DE9A5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846EE327ACD1FF004DE9A5 /* SceneDelegate.swift */; };
-		E6846EE627ACD1FF004DE9A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846EE527ACD1FF004DE9A5 /* ViewController.swift */; };
+		E6846EE627ACD1FF004DE9A5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846EE527ACD1FF004DE9A5 /* HomeViewController.swift */; };
 		E6846EEB27ACD201004DE9A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6846EEA27ACD201004DE9A5 /* Assets.xcassets */; };
 		E6846EEE27ACD201004DE9A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6846EEC27ACD201004DE9A5 /* LaunchScreen.storyboard */; };
 		E6846EF727ACE793004DE9A5 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846EF627ACE793004DE9A5 /* MainNavigationController.swift */; };
 		E6846EF927ACE7A2004DE9A5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846EF827ACE7A2004DE9A5 /* TabBarController.swift */; };
+		E6846EFD27AD1B45004DE9A5 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846EFC27AD1B45004DE9A5 /* BookCell.swift */; };
+		E6846F0327AD1E8D004DE9A5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846F0227AD1E8D004DE9A5 /* Extensions.swift */; };
+		E6846F0527AD1EE6004DE9A5 /* HomeViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846F0427AD1EE6004DE9A5 /* HomeViewController+TableView.swift */; };
+		E6846F0727AD1F25004DE9A5 /* HomeViewController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846F0627AD1F25004DE9A5 /* HomeViewController+SearchBar.swift */; };
+		E6846F0927AD25A3004DE9A5 /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846F0827AD25A3004DE9A5 /* ColorTheme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E6846EDE27ACD1FF004DE9A5 /* MyBookApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBookApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6846EE127ACD1FF004DE9A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6846EE327ACD1FF004DE9A5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E6846EE527ACD1FF004DE9A5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E6846EE527ACD1FF004DE9A5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E6846EEA27ACD201004DE9A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E6846EED27ACD201004DE9A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E6846EEF27ACD201004DE9A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E6846EF627ACE793004DE9A5 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		E6846EF827ACE7A2004DE9A5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		E6846EFC27AD1B45004DE9A5 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
+		E6846F0227AD1E8D004DE9A5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E6846F0427AD1EE6004DE9A5 /* HomeViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+TableView.swift"; sourceTree = "<group>"; };
+		E6846F0627AD1F25004DE9A5 /* HomeViewController+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+SearchBar.swift"; sourceTree = "<group>"; };
+		E6846F0827AD25A3004DE9A5 /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +68,8 @@
 		E6846EE027ACD1FF004DE9A5 /* MyBookApp */ = {
 			isa = PBXGroup;
 			children = (
+				E6846F0127AD1E83004DE9A5 /* Utils */,
+				E6846EFB27AD1B3A004DE9A5 /* View */,
 				E6846EF527ACE780004DE9A5 /* Controller */,
 				E6846EE127ACD1FF004DE9A5 /* AppDelegate.swift */,
 				E6846EE327ACD1FF004DE9A5 /* SceneDelegate.swift */,
@@ -73,9 +85,36 @@
 			children = (
 				E6846EF627ACE793004DE9A5 /* MainNavigationController.swift */,
 				E6846EF827ACE7A2004DE9A5 /* TabBarController.swift */,
-				E6846EE527ACD1FF004DE9A5 /* ViewController.swift */,
+				E6846EFA27AD1AED004DE9A5 /* HomeController */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		E6846EFA27AD1AED004DE9A5 /* HomeController */ = {
+			isa = PBXGroup;
+			children = (
+				E6846EE527ACD1FF004DE9A5 /* HomeViewController.swift */,
+				E6846F0427AD1EE6004DE9A5 /* HomeViewController+TableView.swift */,
+				E6846F0627AD1F25004DE9A5 /* HomeViewController+SearchBar.swift */,
+			);
+			path = HomeController;
+			sourceTree = "<group>";
+		};
+		E6846EFB27AD1B3A004DE9A5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E6846EFC27AD1B45004DE9A5 /* BookCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E6846F0127AD1E83004DE9A5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E6846F0227AD1E8D004DE9A5 /* Extensions.swift */,
+				E6846F0827AD25A3004DE9A5 /* ColorTheme.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,11 +187,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6846EE627ACD1FF004DE9A5 /* ViewController.swift in Sources */,
+				E6846EFD27AD1B45004DE9A5 /* BookCell.swift in Sources */,
+				E6846F0927AD25A3004DE9A5 /* ColorTheme.swift in Sources */,
+				E6846EE627ACD1FF004DE9A5 /* HomeViewController.swift in Sources */,
 				E6846EE227ACD1FF004DE9A5 /* AppDelegate.swift in Sources */,
+				E6846F0727AD1F25004DE9A5 /* HomeViewController+SearchBar.swift in Sources */,
 				E6846EF727ACE793004DE9A5 /* MainNavigationController.swift in Sources */,
 				E6846EF927ACE7A2004DE9A5 /* TabBarController.swift in Sources */,
 				E6846EE427ACD1FF004DE9A5 /* SceneDelegate.swift in Sources */,
+				E6846F0327AD1E8D004DE9A5 /* Extensions.swift in Sources */,
+				E6846F0527AD1EE6004DE9A5 /* HomeViewController+TableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
