@@ -12,6 +12,8 @@
 		E6846EE627ACD1FF004DE9A5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846EE527ACD1FF004DE9A5 /* ViewController.swift */; };
 		E6846EEB27ACD201004DE9A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6846EEA27ACD201004DE9A5 /* Assets.xcassets */; };
 		E6846EEE27ACD201004DE9A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6846EEC27ACD201004DE9A5 /* LaunchScreen.storyboard */; };
+		E6846EF727ACE793004DE9A5 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846EF627ACE793004DE9A5 /* MainNavigationController.swift */; };
+		E6846EF927ACE7A2004DE9A5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846EF827ACE7A2004DE9A5 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		E6846EEA27ACD201004DE9A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E6846EED27ACD201004DE9A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E6846EEF27ACD201004DE9A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6846EF627ACE793004DE9A5 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		E6846EF827ACE7A2004DE9A5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +58,24 @@
 		E6846EE027ACD1FF004DE9A5 /* MyBookApp */ = {
 			isa = PBXGroup;
 			children = (
+				E6846EF527ACE780004DE9A5 /* Controller */,
 				E6846EE127ACD1FF004DE9A5 /* AppDelegate.swift */,
 				E6846EE327ACD1FF004DE9A5 /* SceneDelegate.swift */,
-				E6846EE527ACD1FF004DE9A5 /* ViewController.swift */,
 				E6846EEA27ACD201004DE9A5 /* Assets.xcassets */,
 				E6846EEC27ACD201004DE9A5 /* LaunchScreen.storyboard */,
 				E6846EEF27ACD201004DE9A5 /* Info.plist */,
 			);
 			path = MyBookApp;
+			sourceTree = "<group>";
+		};
+		E6846EF527ACE780004DE9A5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E6846EF627ACE793004DE9A5 /* MainNavigationController.swift */,
+				E6846EF827ACE7A2004DE9A5 /* TabBarController.swift */,
+				E6846EE527ACD1FF004DE9A5 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,6 +150,8 @@
 			files = (
 				E6846EE627ACD1FF004DE9A5 /* ViewController.swift in Sources */,
 				E6846EE227ACD1FF004DE9A5 /* AppDelegate.swift in Sources */,
+				E6846EF727ACE793004DE9A5 /* MainNavigationController.swift in Sources */,
+				E6846EF927ACE7A2004DE9A5 /* TabBarController.swift in Sources */,
 				E6846EE427ACD1FF004DE9A5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
