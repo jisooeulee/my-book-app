@@ -10,9 +10,7 @@ import UIKit
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        // TODO: 検索キーワードにヒットする本の数をセットすること
-        return 30
+        return bookData.getNumberOfItems()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -20,7 +18,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             fatalError("Could not dequeue cell with identifier: BookCell")
         }
         
-        // TODO: 本の情報をセットする処理を追加すること
+        cell.item = bookData.getItem(from: indexPath)
         
         return cell
     }
