@@ -21,9 +21,7 @@ class BookCell: UITableViewCell {
     let titleLabel: UILabel = {
         let lb = UILabel()
         
-        lb.backgroundColor = .yellow // TODO: データセット以降、削除予定
-        lb.adjustsFontSizeToFitWidth = true
-        lb.font = .systemFont(ofSize: 15, weight: .semibold)
+        lb.font = .systemFont(ofSize: 12, weight: .semibold)
         lb.textColor = ColorTheme.customLightBlue.color
         lb.textAlignment = .left
         
@@ -40,9 +38,8 @@ class BookCell: UITableViewCell {
     let authorsLabel: UILabel = {
         let lb = UILabel()
         
-        lb.backgroundColor = .orange // TODO: データセット以降、削除予定
         lb.adjustsFontSizeToFitWidth = true
-        lb.font = .systemFont(ofSize: 13)
+        lb.font = .systemFont(ofSize: 11)
         lb.textColor = .lightGray
         lb.textAlignment = .left
         
@@ -52,14 +49,23 @@ class BookCell: UITableViewCell {
     let descriptionLabel: UILabel = {
         let lb = UILabel()
         
-        lb.backgroundColor = .lightGray // TODO: データセット以降、削除予定
-        lb.font = .systemFont(ofSize: 13)
+        lb.font = .systemFont(ofSize: 10)
         lb.textColor = .darkGray
         lb.textAlignment = .left
         lb.numberOfLines = 0
         
         return lb
     }()
+    
+    var item: Item? {
+        didSet {
+            guard let item = self.item else { return }
+            
+            titleLabel.text = item.volumeInfo.title
+            authorsLabel.text = item.volumeInfo.authors?.joined(separator: ", ") ?? "N/A"
+            descriptionLabel.text = item.volumeInfo.description ?? ""
+        }
+    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
