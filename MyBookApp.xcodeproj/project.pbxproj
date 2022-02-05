@@ -19,6 +19,9 @@
 		E6846F0527AD1EE6004DE9A5 /* HomeViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846F0427AD1EE6004DE9A5 /* HomeViewController+TableView.swift */; };
 		E6846F0727AD1F25004DE9A5 /* HomeViewController+SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846F0627AD1F25004DE9A5 /* HomeViewController+SearchBar.swift */; };
 		E6846F0927AD25A3004DE9A5 /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846F0827AD25A3004DE9A5 /* ColorTheme.swift */; };
+		E6846F0C27AD870E004DE9A5 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E6846F0B27AD870E004DE9A5 /* Alamofire */; };
+		E6846F0F27AD8879004DE9A5 /* BookModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846F0E27AD8879004DE9A5 /* BookModels.swift */; };
+		E6846F1127AE7DB4004DE9A5 /* BookProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846F1027AE7DB4004DE9A5 /* BookProcessor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +39,8 @@
 		E6846F0427AD1EE6004DE9A5 /* HomeViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+TableView.swift"; sourceTree = "<group>"; };
 		E6846F0627AD1F25004DE9A5 /* HomeViewController+SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+SearchBar.swift"; sourceTree = "<group>"; };
 		E6846F0827AD25A3004DE9A5 /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
+		E6846F0E27AD8879004DE9A5 /* BookModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModels.swift; sourceTree = "<group>"; };
+		E6846F1027AE7DB4004DE9A5 /* BookProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookProcessor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6846F0C27AD870E004DE9A5 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +77,7 @@
 				E6846F0127AD1E83004DE9A5 /* Utils */,
 				E6846EFB27AD1B3A004DE9A5 /* View */,
 				E6846EF527ACE780004DE9A5 /* Controller */,
+				E6846F0D27AD885A004DE9A5 /* Model */,
 				E6846EE127ACD1FF004DE9A5 /* AppDelegate.swift */,
 				E6846EE327ACD1FF004DE9A5 /* SceneDelegate.swift */,
 				E6846EEA27ACD201004DE9A5 /* Assets.xcassets */,
@@ -117,6 +124,15 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		E6846F0D27AD885A004DE9A5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E6846F0E27AD8879004DE9A5 /* BookModels.swift */,
+				E6846F1027AE7DB4004DE9A5 /* BookProcessor.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -133,6 +149,9 @@
 			dependencies = (
 			);
 			name = MyBookApp;
+			packageProductDependencies = (
+				E6846F0B27AD870E004DE9A5 /* Alamofire */,
+			);
 			productName = MyBookApp;
 			productReference = E6846EDE27ACD1FF004DE9A5 /* MyBookApp.app */;
 			productType = "com.apple.product-type.application";
@@ -161,6 +180,9 @@
 				Base,
 			);
 			mainGroup = E6846ED527ACD1FF004DE9A5;
+			packageReferences = (
+				E6846F0A27AD870E004DE9A5 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = E6846EDF27ACD1FF004DE9A5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -192,8 +214,10 @@
 				E6846EE627ACD1FF004DE9A5 /* HomeViewController.swift in Sources */,
 				E6846EE227ACD1FF004DE9A5 /* AppDelegate.swift in Sources */,
 				E6846F0727AD1F25004DE9A5 /* HomeViewController+SearchBar.swift in Sources */,
+				E6846F1127AE7DB4004DE9A5 /* BookProcessor.swift in Sources */,
 				E6846EF727ACE793004DE9A5 /* MainNavigationController.swift in Sources */,
 				E6846EF927ACE7A2004DE9A5 /* TabBarController.swift in Sources */,
+				E6846F0F27AD8879004DE9A5 /* BookModels.swift in Sources */,
 				E6846EE427ACD1FF004DE9A5 /* SceneDelegate.swift in Sources */,
 				E6846F0327AD1E8D004DE9A5 /* Extensions.swift in Sources */,
 				E6846F0527AD1EE6004DE9A5 /* HomeViewController+TableView.swift in Sources */,
@@ -406,6 +430,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E6846F0A27AD870E004DE9A5 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E6846F0B27AD870E004DE9A5 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E6846F0A27AD870E004DE9A5 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E6846ED627ACD1FF004DE9A5 /* Project object */;
 }
