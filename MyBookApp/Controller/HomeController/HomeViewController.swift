@@ -8,8 +8,9 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+    
     let tableView: UITableView = UITableView()
+    var bookData: BookDataProcessor = BookDataProcessor()
     
     override func viewDidLoad() {
         super.viewDidLoad()
