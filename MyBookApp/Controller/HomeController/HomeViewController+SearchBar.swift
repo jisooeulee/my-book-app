@@ -17,11 +17,16 @@ extension HomeViewController: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        indicator.stopAnimating()
+        
         scrollUp()
         resetTableView()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        configureActivityIndicator()
+        indicator.startAnimating()
+        
         scrollUp()
         resetTableView()
         searchBar.resignFirstResponder()
@@ -33,11 +38,13 @@ extension HomeViewController: UISearchBarDelegate {
             
             switch result {
             case let .success(result):
+                self.indicator.stopAnimating()
                 self.bookData.addItems(newItems: result.items)
                 self.tableView.reloadData()
                 
             case let .failure(error):
                 // TODO: Error Handlingを追加すること
+                self.indicator.stopAnimating()
                 debugPrint("failure \(error)")
             }
         }
