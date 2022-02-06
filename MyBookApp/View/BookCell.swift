@@ -11,9 +11,9 @@ class BookCell: UITableViewCell {
     
     let bookImageView: UIImageView = {
         let iv = UIImageView()
-        iv.layer.cornerRadius = 15
-        iv.dropShadow(color: .black, opacity: 0.2, offset: CGSize(width: 0, height: 0), radius: 13)
         
+        iv.layer.cornerRadius = 15
+        iv.dropShadow(color: .systemGray2, opacity: 0.2, offset: CGSize(width: 0, height: 0), radius: 13)
         iv.contentMode = .scaleToFill
         
         return iv
@@ -23,7 +23,7 @@ class BookCell: UITableViewCell {
         let lb = UILabel()
         
         lb.font = .systemFont(ofSize: 12, weight: .semibold)
-        lb.textColor = ColorTheme.customLightBlue.color
+        lb.textColor = .systemBlue
         lb.textAlignment = .left
         
         return lb
@@ -39,9 +39,8 @@ class BookCell: UITableViewCell {
     let authorsLabel: UILabel = {
         let lb = UILabel()
         
-        lb.adjustsFontSizeToFitWidth = true
         lb.font = .systemFont(ofSize: 11)
-        lb.textColor = .lightGray
+        lb.textColor = .systemGray
         lb.textAlignment = .left
         
         return lb
@@ -51,19 +50,20 @@ class BookCell: UITableViewCell {
         let lb = UILabel()
         
         lb.font = .systemFont(ofSize: 10)
-        lb.textColor = .darkGray
+        lb.textColor = .systemGray2
         lb.textAlignment = .left
-        lb.numberOfLines = 0
+        lb.numberOfLines = 4
         
         return lb
     }()
     
+    /// item情報が変更されるたびに値を更新する
     var item: Item? {
         didSet {
             guard let item = self.item else { return }
             
             titleLabel.text = item.volumeInfo.title
-            authorsLabel.text = item.volumeInfo.authors?.joined(separator: ", ") ?? "N/A"
+            authorsLabel.text = item.volumeInfo.authors?.joined(separator: ", ") ?? Text.authorsLabelDefault
             descriptionLabel.text = item.volumeInfo.description ?? ""
         }
     }
@@ -84,7 +84,7 @@ class BookCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let inset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
+        let inset = UIEdgeInsets(top: 14, left: 14, bottom: 14, right: 14)
         contentView.frame = contentView.frame.inset(by: inset)
     }
     
@@ -95,9 +95,9 @@ class BookCell: UITableViewCell {
     
     func setup() {
         selectionStyle = .none
-        contentView.backgroundColor = .white
         contentView.layer.cornerRadius = 8
-        contentView.dropShadow(color: .lightGray, opacity: 0.3, offset: CGSize(width: 0, height: 0), radius: 8)
+        contentView.backgroundColor = .systemBackground
+        contentView.dropShadow(color: .systemGray2, opacity: 0.3, offset: CGSize(width: 0, height: 0), radius: 8)
     }
     
     func addViews() {

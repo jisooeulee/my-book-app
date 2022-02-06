@@ -47,6 +47,9 @@ extension HomeViewController: UISearchBarDelegate {
         }
     }
     
+    
+    // MARK: - resetTableView, scrollUp
+    
     private func resetTableView() {
         bookData.removeAllItems()
         tableView.reloadData()

@@ -18,9 +18,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             fatalError(ErrorMessage.cellIdentifier)
         }
         
+        // Image以外の情報をSettingする
         let item = bookData.getItem(from: indexPath)
         cell.item = item
         
+        // Image情報をSettingする
         guard let imageUrl = item?.volumeInfo.imageLinks?.thumbnail else {
             cell.bookImageView.setImage(imageUrl: ImageUrl.defaultThumbnail)
             return cell
