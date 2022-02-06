@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
     }
     
     func setup() {
+        configureView()
         configureNavigationController()
         configureSearchBar()
         configureTableView()
@@ -37,10 +38,13 @@ class HomeViewController: UIViewController {
         tableViewConstraints()
     }
     
+    private func configureView() {
+        view.backgroundColor = ColorTheme.customYellow.color
+    }
+    
     private func configureNavigationController() {
         navigationItem.title = Text.navigationItemTitle
         navigationController?.navigationBar.prefersLargeTitles = true
-        view.backgroundColor = .white
     }
     
     private func configureSearchBar() {
@@ -48,6 +52,7 @@ class HomeViewController: UIViewController {
         
         searchController.searchBar.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.tintColor = .systemBackground
         searchController.searchBar.placeholder = Text.searchBarPlaceholder
         
         navigationItem.searchController = searchController
@@ -59,13 +64,14 @@ class HomeViewController: UIViewController {
         
         tableView.rowHeight = 150
         tableView.separatorStyle = .none
+        tableView.backgroundColor = .systemBackground
         tableView.register(BookCell.self, forCellReuseIdentifier: Cell.cellIdentifier)
     }
     
     func configureActivityIndicator() {
         indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         indicator.style = UIActivityIndicatorView.Style.large
-        indicator.color = .red
+        indicator.color = .systemRed
         indicator.center = self.view.center
         
         view.addSubview(indicator)

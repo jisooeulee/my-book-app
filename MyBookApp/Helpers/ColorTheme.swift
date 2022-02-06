@@ -8,12 +8,12 @@
 import UIKit
 
 enum ColorTheme {
-    case customLightBlue
+    case customYellow
     
     var color: UIColor {
         switch self {
-        case .customLightBlue:
-            return UIColor(r: 88, g: 175, b: 243)
+        case .customYellow:
+            return UIColor(r: 235, g: 190, b: 104)
         }
     }
 }

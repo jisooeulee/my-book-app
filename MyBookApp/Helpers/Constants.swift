@@ -27,6 +27,9 @@ public enum Text {
     /// Alert Title, Message
     static let alertTitle = "⚠️"
     static let alertMessage = "と一致する本がありません！"
+    
+    /// authorsLabel's default Text
+    static let authorsLabelDefault = "No Authors Information"
 }
 
 public enum Cell {
