@@ -9,7 +9,6 @@ import UIKit
 
 class TabBarController: UITabBarController {
     
-    // TODO: Code Refactoringすること
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,23 +17,23 @@ class TabBarController: UITabBarController {
         self.tabBar.unselectedItemTintColor = .gray
         
         let homeVC = UINavigationController(rootViewController: HomeViewController())
-        homeVC.tabBarItem.selectedImage = UIImage(systemName: "star")
-        homeVC.tabBarItem.title = "Home"
-        homeVC.tabBarItem.image = UIImage(systemName: "star.fill")
+        homeVC.tabBarItem.selectedImage = UIImage(systemName: SFSymbols.star)
+        homeVC.tabBarItem.title = Text.homeTabBarTitle
+        homeVC.tabBarItem.image = UIImage(systemName: SFSymbols.starFill)
         
-        let readBookListView = UIViewController()
-        readBookListView.view.backgroundColor = .orange
-        readBookListView.tabBarItem.selectedImage = UIImage(systemName: "checkmark.circle")
-        readBookListView.tabBarItem.title = "My Book"
-        readBookListView.tabBarItem.image = UIImage(systemName: "checkmark.circle.fill")
+        let readBookListVC = UIViewController()
+        readBookListVC.view.backgroundColor = .orange
+        readBookListVC.tabBarItem.selectedImage = UIImage(systemName: SFSymbols.checkMarkCircle)
+        readBookListVC.tabBarItem.title = Text.myBookTabBarTitle
+        readBookListVC.tabBarItem.image = UIImage(systemName: SFSymbols.checkMarkCircleFill)
         
-        let settingView = UIViewController()
-        settingView.view.backgroundColor = .lightGray
-        settingView.tabBarItem.selectedImage = UIImage(systemName: "gearshape")
-        settingView.tabBarItem.title = "Setting"
-        settingView.tabBarItem.image = UIImage(systemName: "gearshape.fill")
+        let settingVC = UIViewController()
+        settingVC.view.backgroundColor = .lightGray
+        settingVC.tabBarItem.selectedImage = UIImage(systemName: SFSymbols.gearShape)
+        settingVC.tabBarItem.title = Text.settingTabBarTitle
+        settingVC.tabBarItem.image = UIImage(systemName: SFSymbols.gearShapeFill)
         
-        viewControllers = [homeVC, readBookListView, settingView]
+        viewControllers = [homeVC, readBookListVC, settingVC]
     }
     
 }
