@@ -42,10 +42,15 @@ extension HomeViewController: UISearchBarDelegate {
                 self.bookData.addItems(newItems: result.items)
                 self.tableView.reloadData()
                 
-            case let .failure(error):
-                // TODO: Error Handlingを追加すること
+            case .failure(_:):
                 self.indicator.stopAnimating()
-                debugPrint("failure \(error)")
+                
+                // TODO: ハードコーディングをRefactoringすること
+                let message = """
+                keyword: "\(searchText)"
+                と一致する本がありません！
+                """
+                self.showAlert(title: "⚠️", message: message)
             }
         }
     }

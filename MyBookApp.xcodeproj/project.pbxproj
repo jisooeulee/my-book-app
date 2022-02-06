@@ -78,8 +78,8 @@
 		E6846EE027ACD1FF004DE9A5 /* MyBookApp */ = {
 			isa = PBXGroup;
 			children = (
-				E6846F1527AEC659004DE9A5 /* Networking */,
 				E6846F0127AD1E83004DE9A5 /* Utils */,
+				E6846F1527AEC659004DE9A5 /* Networking */,
 				E6846EFB27AD1B3A004DE9A5 /* View */,
 				E6846EF527ACE780004DE9A5 /* Controller */,
 				E6846F0D27AD885A004DE9A5 /* Model */,
