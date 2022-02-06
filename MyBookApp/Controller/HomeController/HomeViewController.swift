@@ -10,6 +10,7 @@ import UIKit
 class HomeViewController: UIViewController {
     
     let tableView: UITableView = UITableView()
+    var indicator: UIActivityIndicatorView = UIActivityIndicatorView()
     var bookData: BookDataProcessor = BookDataProcessor()
     
     override func viewDidLoad() {
@@ -25,6 +26,7 @@ class HomeViewController: UIViewController {
         configureNavigationController()
         configureSearchBar()
         configureTableView()
+        configureActivityIndicator()
     }
     
     func addViews() {
@@ -58,6 +60,15 @@ class HomeViewController: UIViewController {
         tableView.rowHeight = 150
         tableView.separatorStyle = .none
         tableView.register(BookCell.self, forCellReuseIdentifier: "BookCell")
+    }
+    
+    func configureActivityIndicator() {
+        indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        indicator.style = UIActivityIndicatorView.Style.large
+        indicator.color = .red
+        indicator.center = self.view.center
+        
+        view.addSubview(indicator)
     }
     
     private func tableViewConstraints() {
