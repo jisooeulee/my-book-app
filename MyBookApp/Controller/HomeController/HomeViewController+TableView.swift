@@ -14,15 +14,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookCell else {
-            fatalError("Could not dequeue cell with identifier: BookCell")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Cell.cellIdentifier, for: indexPath) as? BookCell else {
+            fatalError(ErrorMessage.cellIdentifier)
         }
         
         let item = bookData.getItem(from: indexPath)
         cell.item = item
         
         guard let imageUrl = item?.volumeInfo.imageLinks?.thumbnail else {
-            cell.bookImageView.setImage(imageUrl: "https://books.google.co.jp/googlebooks/images/no_cover_thumb.gif")
+            cell.bookImageView.setImage(imageUrl: ImageUrl.defaultThumbnail)
             return cell
         }
         

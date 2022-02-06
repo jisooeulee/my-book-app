@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E675C94F27AFE0120004811F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E675C94E27AFE0120004811F /* Constants.swift */; };
 		E6846EE227ACD1FF004DE9A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846EE127ACD1FF004DE9A5 /* AppDelegate.swift */; };
 		E6846EE427ACD1FF004DE9A5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846EE327ACD1FF004DE9A5 /* SceneDelegate.swift */; };
 		E6846EE627ACD1FF004DE9A5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846EE527ACD1FF004DE9A5 /* HomeViewController.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E675C94E27AFE0120004811F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E6846EDE27ACD1FF004DE9A5 /* MyBookApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBookApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6846EE127ACD1FF004DE9A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6846EE327ACD1FF004DE9A5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,7 +80,7 @@
 		E6846EE027ACD1FF004DE9A5 /* MyBookApp */ = {
 			isa = PBXGroup;
 			children = (
-				E6846F0127AD1E83004DE9A5 /* Utils */,
+				E6846F0127AD1E83004DE9A5 /* Helpers */,
 				E6846F1527AEC659004DE9A5 /* Networking */,
 				E6846EFB27AD1B3A004DE9A5 /* View */,
 				E6846EF527ACE780004DE9A5 /* Controller */,
@@ -120,13 +122,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		E6846F0127AD1E83004DE9A5 /* Utils */ = {
+		E6846F0127AD1E83004DE9A5 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E675C94E27AFE0120004811F /* Constants.swift */,
 				E6846F0227AD1E8D004DE9A5 /* Extensions.swift */,
 				E6846F0827AD25A3004DE9A5 /* ColorTheme.swift */,
 			);
-			path = Utils;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		E6846F0D27AD885A004DE9A5 /* Model */ = {
@@ -235,6 +238,7 @@
 				E6846EF927ACE7A2004DE9A5 /* TabBarController.swift in Sources */,
 				E6846F0F27AD8879004DE9A5 /* BookModels.swift in Sources */,
 				E6846EE427ACD1FF004DE9A5 /* SceneDelegate.swift in Sources */,
+				E675C94F27AFE0120004811F /* Constants.swift in Sources */,
 				E6846F0327AD1E8D004DE9A5 /* Extensions.swift in Sources */,
 				E6846F0527AD1EE6004DE9A5 /* HomeViewController+TableView.swift in Sources */,
 			);

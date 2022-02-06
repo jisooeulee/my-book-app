@@ -15,9 +15,7 @@ class GoogleBooksApiService {
     private init() {}
     
     func fetchBookList(searchText: String, completionHandler: @escaping (Result<Book, Error>) -> Void) {
-        
-        // TODO: ハードコーディングをRefactoringすること
-        let urlString = "https://www.googleapis.com/books/v1/volumes?q=\(searchText)&maxResults=40"
+        let urlString = Api.requestUrl + searchText + Api.maxResultParam
         guard let encodedURL = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) else {
             //Invalid URL
             return

@@ -38,17 +38,17 @@ class HomeViewController: UIViewController {
     }
     
     private func configureNavigationController() {
-        navigationItem.title = "📖Find a Book"
+        navigationItem.title = Text.navigationItemTitle
         navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = .white
     }
     
     private func configureSearchBar() {
         let searchController = UISearchController()
-
+        
         searchController.searchBar.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "ex) Rich Dad Poor Dad"
+        searchController.searchBar.placeholder = Text.searchBarPlaceholder
         
         navigationItem.searchController = searchController
     }
@@ -59,7 +59,7 @@ class HomeViewController: UIViewController {
         
         tableView.rowHeight = 150
         tableView.separatorStyle = .none
-        tableView.register(BookCell.self, forCellReuseIdentifier: "BookCell")
+        tableView.register(BookCell.self, forCellReuseIdentifier: Cell.cellIdentifier)
     }
     
     func configureActivityIndicator() {

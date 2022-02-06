@@ -78,7 +78,7 @@ class BookCell: UITableViewCell {
     
     @available(*, unavailable, message: "init(coder:) has not been implemented")
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        fatalError(ErrorMessage.unavailable)
     }
     
     override func layoutSubviews() {

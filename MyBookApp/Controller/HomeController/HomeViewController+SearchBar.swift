@@ -18,7 +18,6 @@ extension HomeViewController: UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         indicator.stopAnimating()
-        
         scrollUp()
         resetTableView()
     }
@@ -26,7 +25,6 @@ extension HomeViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         configureActivityIndicator()
         indicator.startAnimating()
-        
         scrollUp()
         resetTableView()
         searchBar.resignFirstResponder()
@@ -44,13 +42,7 @@ extension HomeViewController: UISearchBarDelegate {
                 
             case .failure(_:):
                 self.indicator.stopAnimating()
-                
-                // TODO: ハードコーディングをRefactoringすること
-                let message = """
-                keyword: "\(searchText)"
-                と一致する本がありません！
-                """
-                self.showAlert(title: "⚠️", message: message)
+                self.showAlert(title: Text.alertTitle, message: "「\(searchText)」" + Text.alertMessage)
             }
         }
     }
