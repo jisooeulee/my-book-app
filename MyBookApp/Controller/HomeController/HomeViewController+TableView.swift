@@ -18,7 +18,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             fatalError("Could not dequeue cell with identifier: BookCell")
         }
         
-        cell.item = bookData.getItem(from: indexPath)
+        let item = bookData.getItem(from: indexPath)
+        cell.item = item
+        
+        guard let imageUrl = item?.volumeInfo.imageLinks?.thumbnail else {
+            cell.bookImageView.setImage(imageUrl: "https://books.google.co.jp/googlebooks/images/no_cover_thumb.gif")
+            return cell
+        }
+        
+        cell.bookImageView.setImage(imageUrl: imageUrl)
         
         return cell
     }

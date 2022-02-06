@@ -11,9 +11,10 @@ class BookCell: UITableViewCell {
     
     let bookImageView: UIImageView = {
         let iv = UIImageView()
+        iv.layer.cornerRadius = 15
+        iv.dropShadow(color: .black, opacity: 0.2, offset: CGSize(width: 0, height: 0), radius: 13)
         
-        iv.backgroundColor = .gray // TODO: データセット以降、削除予定
-        iv.contentMode = .scaleAspectFit
+        iv.contentMode = .scaleToFill
         
         return iv
     }()
@@ -118,7 +119,7 @@ class BookCell: UITableViewCell {
     private func bookImageViewConstraints() {
         bookImageView.translatesAutoresizingMaskIntoConstraints = false
         
-        bookImageView.widthAnchor.constraint(equalToConstant: 90).isActive = true
+        bookImageView.widthAnchor.constraint(equalToConstant: 85).isActive = true
         bookImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         bookImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
         bookImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
