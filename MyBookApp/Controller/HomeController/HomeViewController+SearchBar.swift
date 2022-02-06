@@ -9,12 +9,22 @@ import UIKit
 
 extension HomeViewController: UISearchBarDelegate {
     
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        let indexPath = IndexPath(row: NSNotFound, section: 0)
-        self.tableView.scrollToRow(at: indexPath as IndexPath, at: .top, animated: true)
-        searchBar.resignFirstResponder()
-        
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.count == 0,
+           bookData.getNumberOfItems() != 0 {
+            resetTableView()
+        }
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        scrollUp()
         resetTableView()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        scrollUp()
+        resetTableView()
+        searchBar.resignFirstResponder()
         
         guard let searchText = navigationItem.searchController?.searchBar.text else { return }
         
@@ -36,5 +46,10 @@ extension HomeViewController: UISearchBarDelegate {
     private func resetTableView() {
         bookData.removeAllItems()
         tableView.reloadData()
+    }
+    
+    private func scrollUp() {
+        let indexPath = IndexPath(row: NSNotFound, section: 0)
+        self.tableView.scrollToRow(at: indexPath as IndexPath, at: .top, animated: true)
     }
 }
