@@ -6,10 +6,18 @@
 //
 
 import UIKit
+import Kingfisher
 
 extension Collection {
     subscript (safe index: Index) -> Element? {
         return indices.contains(index) ? self[index] : nil
+    }
+}
+
+extension UIImageView {
+    
+    func setImage(imageUrl: String) {
+        self.kf.setImage(with: URL(string: imageUrl))
     }
 }
 

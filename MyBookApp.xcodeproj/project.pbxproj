@@ -22,6 +22,8 @@
 		E6846F0C27AD870E004DE9A5 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = E6846F0B27AD870E004DE9A5 /* Alamofire */; };
 		E6846F0F27AD8879004DE9A5 /* BookModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846F0E27AD8879004DE9A5 /* BookModels.swift */; };
 		E6846F1127AE7DB4004DE9A5 /* BookProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846F1027AE7DB4004DE9A5 /* BookProcessor.swift */; };
+		E6846F1727AEC70E004DE9A5 /* GoogleBooksApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846F1627AEC70E004DE9A5 /* GoogleBooksApiService.swift */; };
+		E6846F1A27AED8E2004DE9A5 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E6846F1927AED8E2004DE9A5 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,7 @@
 		E6846F0827AD25A3004DE9A5 /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
 		E6846F0E27AD8879004DE9A5 /* BookModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModels.swift; sourceTree = "<group>"; };
 		E6846F1027AE7DB4004DE9A5 /* BookProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookProcessor.swift; sourceTree = "<group>"; };
+		E6846F1627AEC70E004DE9A5 /* GoogleBooksApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleBooksApiService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6846F1A27AED8E2004DE9A5 /* Kingfisher in Frameworks */,
 				E6846F0C27AD870E004DE9A5 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -74,6 +78,7 @@
 		E6846EE027ACD1FF004DE9A5 /* MyBookApp */ = {
 			isa = PBXGroup;
 			children = (
+				E6846F1527AEC659004DE9A5 /* Networking */,
 				E6846F0127AD1E83004DE9A5 /* Utils */,
 				E6846EFB27AD1B3A004DE9A5 /* View */,
 				E6846EF527ACE780004DE9A5 /* Controller */,
@@ -133,6 +138,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		E6846F1527AEC659004DE9A5 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E6846F1627AEC70E004DE9A5 /* GoogleBooksApiService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -151,6 +164,7 @@
 			name = MyBookApp;
 			packageProductDependencies = (
 				E6846F0B27AD870E004DE9A5 /* Alamofire */,
+				E6846F1927AED8E2004DE9A5 /* Kingfisher */,
 			);
 			productName = MyBookApp;
 			productReference = E6846EDE27ACD1FF004DE9A5 /* MyBookApp.app */;
@@ -182,6 +196,7 @@
 			mainGroup = E6846ED527ACD1FF004DE9A5;
 			packageReferences = (
 				E6846F0A27AD870E004DE9A5 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				E6846F1827AED8E2004DE9A5 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = E6846EDF27ACD1FF004DE9A5 /* Products */;
 			projectDirPath = "";
@@ -210,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6846EFD27AD1B45004DE9A5 /* BookCell.swift in Sources */,
+				E6846F1727AEC70E004DE9A5 /* GoogleBooksApiService.swift in Sources */,
 				E6846F0927AD25A3004DE9A5 /* ColorTheme.swift in Sources */,
 				E6846EE627ACD1FF004DE9A5 /* HomeViewController.swift in Sources */,
 				E6846EE227ACD1FF004DE9A5 /* AppDelegate.swift in Sources */,
@@ -440,6 +456,14 @@
 				version = 5.5.0;
 			};
 		};
+		E6846F1827AED8E2004DE9A5 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -447,6 +471,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E6846F0A27AD870E004DE9A5 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		E6846F1927AED8E2004DE9A5 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E6846F1827AED8E2004DE9A5 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

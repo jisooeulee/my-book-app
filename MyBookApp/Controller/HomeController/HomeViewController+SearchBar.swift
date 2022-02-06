@@ -14,7 +14,7 @@ extension HomeViewController: UISearchBarDelegate {
         self.tableView.scrollToRow(at: indexPath as IndexPath, at: .top, animated: true)
         searchBar.resignFirstResponder()
         
-        bookData.removeAllItems()
+        resetTableView()
         
         guard let searchText = navigationItem.searchController?.searchBar.text else { return }
         
