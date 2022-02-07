@@ -5,8 +5,8 @@
 //  Created by 279c on 2022/02/07.
 //
 
-import Foundation
 import UIKit
+import SafariServices
 
 class DetailViewController: UIViewController {
     var item: Item!
@@ -28,6 +28,11 @@ class DetailViewController: UIViewController {
     
     func setup() {
         view.backgroundColor = .white
+        configureTitleButton()
+    }
+    
+    private func configureTitleButton() {
+        detailView.titleButton.addTarget(self, action: #selector(self.titleButtonTapped(_:)), for: .touchUpInside)
     }
     
     func addViews() {
@@ -64,6 +69,17 @@ class DetailViewController: UIViewController {
             return
         }
         self.detailView.mainImageView.setImage(imageUrl: imageUrl)
+    }
+    
+    
+    // MARK: - Move to Google Book Web Page
+    /// titleButtonをTapする場合、Google Books Web Pageを表示する
+    @objc func titleButtonTapped(_ sender: UITapGestureRecognizer) {
+        guard let urlString = item.volumeInfo.canonicalVolumeLink else { return }
+        guard let url = URL(string: urlString) else { return }
+        
+        let vc = SFSafariViewController(url: url)
+        present(vc, animated: true, completion: nil)
     }
     
 }
