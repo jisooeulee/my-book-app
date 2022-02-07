@@ -33,6 +33,11 @@ extension UIView {
         layer.shouldRasterize = true
         layer.rasterizationScale = UIScreen.main.scale
     }
+    
+    func setCornerRadius(cornerRadius: CGFloat = 8, masksToBounds: Bool = true) {
+        layer.cornerRadius = cornerRadius
+        layer.masksToBounds = masksToBounds
+    }
 }
 
 extension UIViewController {
