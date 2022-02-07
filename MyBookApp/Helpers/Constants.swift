@@ -36,13 +36,14 @@ public enum Cell {
     static let cellIdentifier = "BookCell"
 }
 
-public enum SFSymbols {
+public enum Symbols {
     static let star = "star"
     static let starFill = "star.fill"
     static let checkMarkCircle = "checkmark.circle"
     static let checkMarkCircleFill = "checkmark.circle.fill"
     static let gearShape = "gearshape"
     static let gearShapeFill = "gearshape.fill"
+    static let nonChecked = "nonChecked.png"
 }
 
 public enum ImageUrl {
