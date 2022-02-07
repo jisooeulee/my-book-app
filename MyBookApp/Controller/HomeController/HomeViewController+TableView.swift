@@ -33,4 +33,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let selectedItem = bookData.getItem(from: indexPath) else { return }
+        
+        let vc = DetailViewController(item: selectedItem)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
 }
