@@ -30,6 +30,9 @@ public enum Text {
     
     /// authorsLabel's default Text
     static let authorsLabelDefault = "No Authors Information"
+    
+    /// commentLabel's Text
+    static let commentLabel = "Your Comment💬"
 }
 
 public enum Cell {

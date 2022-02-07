@@ -59,6 +59,7 @@ class DetailView: UIView {
         let tv = UITextView()
         
         tv.backgroundColor = .systemGray
+        tv.setCornerRadius()
         tv.font = UIFont.systemFont(ofSize: 11, weight: .regular)
         tv.textAlignment = .justified
         tv.textColor = .white
@@ -68,14 +69,26 @@ class DetailView: UIView {
         return tv
     }()
     
+    let commentLabel: UILabel = {
+       let lb = UILabel()
+        
+        lb.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
+        lb.textAlignment = .left
+        lb.textColor = .systemRed
+        lb.text = Text.commentLabel
+        
+        return lb
+    }()
+    
     let commentView: UITextView = {
         let tf = UITextView()
         
         tf.backgroundColor = .systemGray2
+        tf.setCornerRadius()
+        tf.font = UIFont.systemFont(ofSize: 11, weight: .regular)
         tf.textAlignment = .justified
         tf.textColor = .white
-        tf.dropShadow()
-        tf.isHidden = false
+        tf.isEditable = true
         
         return tf
     }()
@@ -103,6 +116,7 @@ class DetailView: UIView {
         addSubview(readCheckButton)
         addSubview(authorsLabel)
         addSubview(descriptionTextView)
+        addSubview(commentLabel)
         addSubview(commentView)
     }
     
@@ -112,6 +126,7 @@ class DetailView: UIView {
         readCheckImageViewConstraints()
         authorsLabelConstraints()
         descriptionTextViewConstraints()
+        commentLabelConstraints()
         commentViewConstraints()
     }
     
@@ -160,10 +175,19 @@ class DetailView: UIView {
         descriptionTextView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
     }
     
+    private func commentLabelConstraints() {
+        commentLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        commentLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
+        commentLabel.topAnchor.constraint(equalTo: descriptionTextView.bottomAnchor, constant: 10).isActive = true
+        commentLabel.widthAnchor.constraint(equalToConstant: 140).isActive = true
+        commentLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+    }
+    
     private func commentViewConstraints() {
         commentView.translatesAutoresizingMaskIntoConstraints = false
         
-        commentView.topAnchor.constraint(equalTo: descriptionTextView.bottomAnchor, constant: 15).isActive = true
+        commentView.topAnchor.constraint(equalTo: commentLabel.bottomAnchor, constant: 5).isActive = true
         commentView.widthAnchor.constraint(equalTo: descriptionTextView.widthAnchor).isActive = true
         commentView.heightAnchor.constraint(equalToConstant: 70).isActive = true
         commentView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
