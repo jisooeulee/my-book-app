@@ -47,6 +47,7 @@ public enum Symbols {
     static let gearShape = "gearshape"
     static let gearShapeFill = "gearshape.fill"
     static let nonChecked = "nonChecked.png"
+    static let checked = "checked.png"
 }
 
 public enum ImageUrl {
