@@ -13,7 +13,7 @@ class BookCell: UITableViewCell {
         let iv = UIImageView()
         
         iv.layer.cornerRadius = 15
-        iv.dropShadow(color: .systemGray2, opacity: 0.2, offset: CGSize(width: 0, height: 0), radius: 13)
+        iv.cellDropShadow(color: .systemGray2, opacity: 0.2, offset: CGSize(width: 0, height: 0), radius: 13)
         iv.contentMode = .scaleToFill
         
         return iv
@@ -63,7 +63,7 @@ class BookCell: UITableViewCell {
             guard let item = self.item else { return }
             
             titleLabel.text = item.volumeInfo.title
-            authorsLabel.text = item.volumeInfo.authors?.joined(separator: ", ") ?? Text.authorsLabelDefault
+            authorsLabel.text = item.volumeInfo.authors?.joined(separator: ", ") ?? Text.noInfo
             descriptionLabel.text = item.volumeInfo.description ?? ""
         }
     }
@@ -97,7 +97,7 @@ class BookCell: UITableViewCell {
         selectionStyle = .none
         contentView.layer.cornerRadius = 8
         contentView.backgroundColor = .systemBackground
-        contentView.dropShadow(color: .systemGray2, opacity: 0.3, offset: CGSize(width: 0, height: 0), radius: 8)
+        contentView.cellDropShadow(color: .systemGray2, opacity: 0.3, offset: CGSize(width: 0, height: 0), radius: 8)
     }
     
     func addViews() {
