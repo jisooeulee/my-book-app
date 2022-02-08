@@ -81,7 +81,7 @@ class DetailViewController: UIViewController {
     
     /// titleButtonをTapする場合、Google Books Web Pageを表示する
     @objc func titleButtonTapped(_ sender: UITapGestureRecognizer) {
-        guard let urlString = item.volumeInfo.canonicalVolumeLink else { return }
+        guard let urlString = item.volumeInfo.googleBooksWebLink else { return }
         guard let url = URL(string: urlString) else { return }
         
         let vc = SFSafariViewController(url: url)

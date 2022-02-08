@@ -26,8 +26,20 @@ class DetailView: UIView {
                 }
             }
             titleButton.setTitle(item.volumeInfo.title, for: .normal)
-            authorsLabel.text = item.volumeInfo.authors?.joined(separator: ", ") ?? Text.authorsLabelDefault
-            descriptionTextView.text = item.volumeInfo.description ?? ""
+            authorsLabel.text = item.volumeInfo.authors?.joined(separator: ", ") ?? Text.noInfo
+            let currencyCode = item.saleInfo.retailPrice?.currencyCode ?? ""
+            let retailPrice = item.saleInfo.retailPrice?.amount?.description ?? Text.noInfo
+            retailPriceLabel.text = "\(currencyCode) \(retailPrice.description)"
+            descriptionTextView.text = item.volumeInfo.description ?? Text.noInfo
+            
+            detailInfoStackView.categoriesView.mainTitleLabel.text = Text.categoriesView
+            detailInfoStackView.categoriesView.contentLabel.text = item.volumeInfo.categories?.joined(separator: ", ") ?? Text.noInfo
+            detailInfoStackView.publisherView.mainTitleLabel.text = Text.publisherView
+            detailInfoStackView.publisherView.contentLabel.text = item.volumeInfo.publisher ?? Text.noInfo
+            detailInfoStackView.publishedDateView.mainTitleLabel.text = Text.publishedDateView
+            detailInfoStackView.publishedDateView.contentLabel.text = item.volumeInfo.publishedDate ?? Text.noInfo
+            detailInfoStackView.pageCountView.mainTitleLabel.text = Text.pageCountView
+            detailInfoStackView.pageCountView.contentLabel.text = item.volumeInfo.pageCount?.description ?? Text.noInfo
         }
     }
     
@@ -42,7 +54,7 @@ class DetailView: UIView {
         let iv = UIImageView()
         
         iv.contentMode = .scaleToFill
-        iv.dropShadow()
+        iv.cellDropShadow()
         
         return iv
     }()
@@ -67,6 +79,19 @@ class DetailView: UIView {
         return lb
     }()
     
+    let retailPriceLabel: UILabel = {
+        let lb = UILabel()
+        
+        lb.adjustsFontSizeToFitWidth = true
+        lb.backgroundColor = ColorTheme.customLightBlue.color
+        lb.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+        lb.textColor = .white
+        lb.textAlignment = .center
+        lb.setCornerRadius(cornerRadius: 7)
+        
+        return lb
+    }()
+    
     let descriptionTextView: UITextView = {
         let tv = UITextView()
         
@@ -81,29 +106,7 @@ class DetailView: UIView {
         return tv
     }()
     
-    let commentLabel: UILabel = {
-        let lb = UILabel()
-        
-        lb.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
-        lb.textAlignment = .left
-        lb.textColor = .systemRed
-        lb.text = Text.commentLabel
-        
-        return lb
-    }()
-    
-    let commentView: UITextView = {
-        let tf = UITextView()
-        
-        tf.backgroundColor = .systemGray2
-        tf.setCornerRadius()
-        tf.font = UIFont.systemFont(ofSize: 11, weight: .regular)
-        tf.textAlignment = .justified
-        tf.textColor = .white
-        tf.isEditable = true
-        
-        return tf
-    }()
+    let detailInfoStackView: DetailInfoStackView = DetailInfoStackView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -128,8 +131,8 @@ class DetailView: UIView {
         addSubview(readCheckButton)
         addSubview(authorsLabel)
         addSubview(descriptionTextView)
-        addSubview(commentLabel)
-        addSubview(commentView)
+        addSubview(retailPriceLabel)
+        addSubview(detailInfoStackView)
     }
     
     func setConstraints() {
@@ -138,8 +141,8 @@ class DetailView: UIView {
         readCheckImageViewConstraints()
         authorsLabelConstraints()
         descriptionTextViewConstraints()
-        commentLabelConstraints()
-        commentViewConstraints()
+        publishedDateLabelConstraints()
+        detailInfoStackViewConstraints()
     }
     
     private func readCheckImageViewConstraints() {
@@ -178,31 +181,31 @@ class DetailView: UIView {
         authorsLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
     }
     
+    private func publishedDateLabelConstraints() {
+        retailPriceLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        retailPriceLabel.topAnchor.constraint(equalTo: authorsLabel.bottomAnchor, constant: 5).isActive = true
+        retailPriceLabel.widthAnchor.constraint(equalToConstant: 90).isActive = true
+        retailPriceLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        retailPriceLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
+    }
+    
     private func descriptionTextViewConstraints() {
         descriptionTextView.translatesAutoresizingMaskIntoConstraints = false
         
-        descriptionTextView.topAnchor.constraint(equalTo: authorsLabel.bottomAnchor, constant: 15).isActive = true
+        descriptionTextView.topAnchor.constraint(equalTo: retailPriceLabel.bottomAnchor, constant: 15).isActive = true
         descriptionTextView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.9).isActive = true
         descriptionTextView.heightAnchor.constraint(equalToConstant: 120).isActive = true
         descriptionTextView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
     }
     
-    private func commentLabelConstraints() {
-        commentLabel.translatesAutoresizingMaskIntoConstraints = false
+    private func detailInfoStackViewConstraints() {
+        detailInfoStackView.translatesAutoresizingMaskIntoConstraints = false
         
-        commentLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-        commentLabel.topAnchor.constraint(equalTo: descriptionTextView.bottomAnchor, constant: 10).isActive = true
-        commentLabel.widthAnchor.constraint(equalToConstant: 140).isActive = true
-        commentLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
-    }
-    
-    private func commentViewConstraints() {
-        commentView.translatesAutoresizingMaskIntoConstraints = false
-        
-        commentView.topAnchor.constraint(equalTo: commentLabel.bottomAnchor, constant: 5).isActive = true
-        commentView.widthAnchor.constraint(equalTo: descriptionTextView.widthAnchor).isActive = true
-        commentView.heightAnchor.constraint(equalToConstant: 70).isActive = true
-        commentView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        detailInfoStackView.topAnchor.constraint(equalTo: descriptionTextView.bottomAnchor, constant: 20).isActive = true
+        detailInfoStackView.widthAnchor.constraint(equalTo: descriptionTextView.widthAnchor).isActive = true
+        detailInfoStackView.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        detailInfoStackView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
     }
     
 }

@@ -29,10 +29,13 @@ public enum Text {
     static let alertMessage = "と一致する本がありません！"
     
     /// authorsLabel's default Text
-    static let authorsLabelDefault = "No Authors Information"
+    static let noInfo = "No Info"
     
-    /// commentLabel's Text
-    static let commentLabel = "Your Comment💬"
+    /// Detail Info View Main Title
+    static let categoriesView = "Category"
+    static let publisherView = "Publisher"
+    static let publishedDateView = "Published Date"
+    static let pageCountView = "Page"
 }
 
 public enum Cell {
