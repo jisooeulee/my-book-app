@@ -26,11 +26,20 @@ class DetailView: UIView {
                 }
             }
             titleButton.setTitle(item.volumeInfo.title, for: .normal)
-            authorsLabel.text = item.volumeInfo.authors?.joined(separator: ", ") ?? Text.authorsLabelDefault
+            authorsLabel.text = item.volumeInfo.authors?.joined(separator: ", ") ?? Text.noInfo
             let currencyCode = item.saleInfo.retailPrice?.currencyCode ?? ""
-            let retailPrice = item.saleInfo.retailPrice?.amount?.description ?? Text.retailPriceLabelDefault
+            let retailPrice = item.saleInfo.retailPrice?.amount?.description ?? Text.noInfo
             retailPriceLabel.text = "\(currencyCode) \(retailPrice.description)"
-            descriptionTextView.text = item.volumeInfo.description ?? ""
+            descriptionTextView.text = item.volumeInfo.description ?? Text.noInfo
+            
+            detailInfoStackView.categoriesView.mainTitleLabel.text = Text.categoriesView
+            detailInfoStackView.categoriesView.contentLabel.text = item.volumeInfo.categories?.joined(separator: ", ") ?? Text.noInfo
+            detailInfoStackView.publisherView.mainTitleLabel.text = Text.publisherView
+            detailInfoStackView.publisherView.contentLabel.text = item.volumeInfo.publisher ?? Text.noInfo
+            detailInfoStackView.publishedDateView.mainTitleLabel.text = Text.publishedDateView
+            detailInfoStackView.publishedDateView.contentLabel.text = item.volumeInfo.publishedDate ?? Text.noInfo
+            detailInfoStackView.pageCountView.mainTitleLabel.text = Text.pageCountView
+            detailInfoStackView.pageCountView.contentLabel.text = item.volumeInfo.pageCount?.description ?? Text.noInfo
         }
     }
     
@@ -45,7 +54,7 @@ class DetailView: UIView {
         let iv = UIImageView()
         
         iv.contentMode = .scaleToFill
-        iv.dropShadow()
+        iv.cellDropShadow()
         
         return iv
     }()
@@ -97,6 +106,8 @@ class DetailView: UIView {
         return tv
     }()
     
+    let detailInfoStackView: DetailInfoStackView = DetailInfoStackView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -121,6 +132,7 @@ class DetailView: UIView {
         addSubview(authorsLabel)
         addSubview(descriptionTextView)
         addSubview(retailPriceLabel)
+        addSubview(detailInfoStackView)
     }
     
     func setConstraints() {
@@ -130,6 +142,7 @@ class DetailView: UIView {
         authorsLabelConstraints()
         descriptionTextViewConstraints()
         publishedDateLabelConstraints()
+        detailInfoStackViewConstraints()
     }
     
     private func readCheckImageViewConstraints() {
@@ -184,6 +197,15 @@ class DetailView: UIView {
         descriptionTextView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.9).isActive = true
         descriptionTextView.heightAnchor.constraint(equalToConstant: 120).isActive = true
         descriptionTextView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+    }
+    
+    private func detailInfoStackViewConstraints() {
+        detailInfoStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        detailInfoStackView.topAnchor.constraint(equalTo: descriptionTextView.bottomAnchor, constant: 20).isActive = true
+        detailInfoStackView.widthAnchor.constraint(equalTo: descriptionTextView.widthAnchor).isActive = true
+        detailInfoStackView.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        detailInfoStackView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
     }
     
 }
