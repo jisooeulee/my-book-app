@@ -24,7 +24,7 @@ extension UIImageView {
 extension UIView {
     
     /// Shadow Effectをセットする
-    func dropShadow(color: UIColor = .black, opacity: Float = 0.3, offset: CGSize = CGSize(width: 1, height: 3), radius: CGFloat = 4) {
+    func cellDropShadow(color: UIColor = .black, opacity: Float = 0.3, offset: CGSize = CGSize(width: 1, height: 3), radius: CGFloat = 4) {
         layer.masksToBounds = false
         layer.shadowColor = color.cgColor
         layer.shadowOffset = offset
@@ -32,6 +32,13 @@ extension UIView {
         layer.shadowRadius = radius
         layer.shouldRasterize = true
         layer.rasterizationScale = UIScreen.main.scale
+    }
+    
+    func detailStackViewDropShadow(color: CGColor, opcity: Float = 0.4, offset: CGSize = CGSize(width: 0, height: 4), radius: CGFloat = 4) {
+        layer.shadowColor = color
+        layer.shadowOffset = offset
+        layer.shadowOpacity = opcity
+        layer.shadowRadius = radius
     }
     
     func setCornerRadius(cornerRadius: CGFloat = 8, masksToBounds: Bool = true) {
