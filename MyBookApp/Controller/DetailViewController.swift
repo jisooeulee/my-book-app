@@ -28,7 +28,12 @@ class DetailViewController: UIViewController {
     
     func setup() {
         view.backgroundColor = .white
+        configureReadCheckButton()
         configureTitleButton()
+    }
+    
+    private func configureReadCheckButton() {
+        detailView.readCheckButton.addTarget(self, action: #selector(self.readCheckButtonTapped(_:)), for: .touchUpInside)
     }
     
     private func configureTitleButton() {
@@ -73,6 +78,7 @@ class DetailViewController: UIViewController {
     
     
     // MARK: - Move to Google Book Web Page
+    
     /// titleButtonをTapする場合、Google Books Web Pageを表示する
     @objc func titleButtonTapped(_ sender: UITapGestureRecognizer) {
         guard let urlString = item.volumeInfo.canonicalVolumeLink else { return }
@@ -80,6 +86,19 @@ class DetailViewController: UIViewController {
         
         let vc = SFSafariViewController(url: url)
         present(vc, animated: true, completion: nil)
+    }
+    
+    // MARK: - change button icon & update db
+    
+    /// readCheckButtonをTapする場合、iconの切り替え&DB情報を変更
+    @objc func readCheckButtonTapped(_ sender: UITapGestureRecognizer) {
+        if detailView.readCheckButton.imageView?.image == UIImage(named: Symbols.checked) {
+            FirebaseProcessor.shared.deleteBookInfo(keyword: item.id)
+            detailView.readCheckButton.setImage(UIImage(named: Symbols.nonChecked), for: .normal)
+        } else {
+            FirebaseProcessor.shared.writeReadBookInfo(id: item.id)
+            detailView.readCheckButton.setImage(UIImage(named: Symbols.checked), for: .normal)
+        }
     }
     
 }

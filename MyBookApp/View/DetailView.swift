@@ -9,10 +9,22 @@ import UIKit
 
 class DetailView: UIView {
     
+    /// 読んだ本かどうかのFlag
+    var isRead = false
+    
     var item: Item? {
         didSet {
             guard let item = self.item else { return }
             
+            FirebaseProcessor.shared.searchBookInfo(keyword: item.id) { result in
+                self.isRead = result
+                
+                if self.isRead {
+                    self.readCheckButton.setImage(UIImage(named: Symbols.checked), for: .normal)
+                } else {
+                    self.readCheckButton.setImage(UIImage(named: Symbols.nonChecked), for: .normal)
+                }
+            }
             titleButton.setTitle(item.volumeInfo.title, for: .normal)
             authorsLabel.text = item.volumeInfo.authors?.joined(separator: ", ") ?? Text.authorsLabelDefault
             descriptionTextView.text = item.volumeInfo.description ?? ""
@@ -70,7 +82,7 @@ class DetailView: UIView {
     }()
     
     let commentLabel: UILabel = {
-       let lb = UILabel()
+        let lb = UILabel()
         
         lb.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
         lb.textAlignment = .left
