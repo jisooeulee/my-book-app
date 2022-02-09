@@ -42,13 +42,6 @@ class BookCell: UITableViewCell {
         return lb
     }()
     
-    let readCheckImageView: UIImageView = {
-        let iv = UIImageView()
-        iv.backgroundColor = .red // TODO: データセット以降、削除予定
-        
-        return iv
-    }()
-    
     let authorsLabel: UILabel = {
         let lb = UILabel()
         
@@ -106,14 +99,12 @@ class BookCell: UITableViewCell {
     func addViews() {
         contentView.addSubview(bookImageView)
         contentView.addSubview(titleLabel)
-        contentView.addSubview(readCheckImageView)
         contentView.addSubview(authorsLabel)
         contentView.addSubview(descriptionLabel)
     }
     
     func setConstraints() {
         bookImageViewConstraints()
-        readCheckImageViewConstraints()
         titleLabelConstraints()
         descriptionLabelConstraints()
         authorsLabelConstraints()
@@ -137,15 +128,6 @@ class BookCell: UITableViewCell {
         titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30).isActive = true
         titleLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
-    }
-    
-    private func readCheckImageViewConstraints() {
-        readCheckImageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        readCheckImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: -5).isActive = true
-        readCheckImageView.widthAnchor.constraint(equalToConstant: 20).isActive = true
-        readCheckImageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        readCheckImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 3).isActive = true
     }
     
     private func authorsLabelConstraints() {
