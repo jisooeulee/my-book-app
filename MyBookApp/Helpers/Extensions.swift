@@ -23,31 +23,24 @@ extension UIImageView {
 
 extension UIView {
     
-    /// Shadow Effectをセットする
-    func cellDropShadow(color: UIColor = .black, opacity: Float = 0.3, offset: CGSize = CGSize(width: 1, height: 3), radius: CGFloat = 4) {
-        layer.masksToBounds = false
-        layer.shadowColor = color.cgColor
-        layer.shadowOffset = offset
-        layer.shadowOpacity = opacity
-        layer.shadowRadius = radius
-        layer.shouldRasterize = true
-        layer.rasterizationScale = UIScreen.main.scale
-    }
-    
-    func detailStackViewDropShadow(color: CGColor, opcity: Float = 0.4, offset: CGSize = CGSize(width: 0, height: 4), radius: CGFloat = 4) {
-        layer.shadowColor = color
-        layer.shadowOffset = offset
-        layer.shadowOpacity = opcity
-        layer.shadowRadius = radius
-    }
-    
     func setCornerRadius(cornerRadius: CGFloat = 8, masksToBounds: Bool = true) {
         layer.cornerRadius = cornerRadius
         layer.masksToBounds = masksToBounds
     }
+    
+    func configureDetailView() {
+        backgroundColor = ColorTheme.customDarkNavi.color
+    }
+    
+    func configureDetailInfoView() {
+        backgroundColor = ColorTheme.customLightNavi.color
+        setCornerRadius(cornerRadius: 4, masksToBounds: false)
+    }
+
 }
 
 extension UIViewController {
+    
     /// Alertを表示する
     func showAlert(title: String, message: String) {
         DispatchQueue.main.async {
@@ -58,11 +51,45 @@ extension UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
     }
+    
+    func configureSearchTextField(of searchController: UISearchController) {
+        searchController.searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: Text.searchBarPlaceholder, attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        searchController.searchBar.searchTextField.textColor = .white
+    }
+    
+    func configureHomeViewController(view: UIView) {
+        view.backgroundColor = ColorTheme.customLightBlue.color
+    }
+    
+    func configureDetailViewController(view: UIView) {
+        view.backgroundColor = .white
+    }
+    
+    func configureNavigationBar(of navigationController: UINavigationController) {
+        navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        navigationController.navigationBar.tintColor = .white
+    }
+    
+    func configureNavigationItem() {
+        navigationItem.title = Text.navigationItemTitle
+    }
+    
 }
 
 extension UIColor {
     
     public convenience init(r: Int, g: Int, b: Int, alpha: CGFloat = 1.0) {
         self.init(red: CGFloat(r) / 255, green: CGFloat(g) / 255, blue: CGFloat(b) / 255, alpha: alpha)
+    }
+}
+
+extension UITableViewCell {
+    
+    func configureBookCell() {
+        selectionStyle = .none
+        backgroundColor = ColorTheme.customDarkNavi.color
+        contentView.backgroundColor = ColorTheme.customLightNavi.color
+        contentView.setCornerRadius()
     }
 }
