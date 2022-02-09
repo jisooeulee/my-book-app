@@ -28,6 +28,9 @@ public enum Text {
     static let alertTitle = "⚠️"
     static let alertMessage = "と一致する本がありません！"
     
+    /// Popup Message
+    static let registered = "registered!"
+    
     /// authorsLabel's default Text
     static let noInfo = "No Info"
     
