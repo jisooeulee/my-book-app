@@ -9,9 +9,14 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
+    let searchController = UISearchController()
     let tableView: UITableView = UITableView()
     var indicator: UIActivityIndicatorView = UIActivityIndicatorView()
     var bookData: BookDataProcessor = BookDataProcessor()
+    
+    override func viewDidAppear(_ animated: Bool) {
+        configureSearchTextField(of: searchController)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +28,7 @@ class HomeViewController: UIViewController {
     }
     
     func setup() {
-        configureView()
+        configureHomeViewController(view: view)
         configureNavigationController()
         configureSearchBar()
         configureTableView()
@@ -38,21 +43,17 @@ class HomeViewController: UIViewController {
         tableViewConstraints()
     }
     
-    private func configureView() {
-        view.backgroundColor = ColorTheme.customYellow.color
-    }
-    
     private func configureNavigationController() {
-        navigationItem.title = Text.navigationItemTitle
-        navigationController?.navigationBar.prefersLargeTitles = true
+        guard let navigationController = navigationController else { return }
+        
+        configureNavigationBar(of: navigationController)
+        configureNavigationItem()
     }
     
     private func configureSearchBar() {
-        let searchController = UISearchController()
-        
         searchController.searchBar.delegate = self
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.tintColor = .systemBackground
+        searchController.searchBar.tintColor = .white
         searchController.searchBar.placeholder = Text.searchBarPlaceholder
         
         navigationItem.searchController = searchController
@@ -61,10 +62,10 @@ class HomeViewController: UIViewController {
     private func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        
         tableView.rowHeight = 150
         tableView.separatorStyle = .none
-        tableView.backgroundColor = .systemBackground
+        tableView.backgroundColor = ColorTheme.customDarkNavi.color
+        
         tableView.register(BookCell.self, forCellReuseIdentifier: Cell.cellIdentifier)
     }
     
@@ -76,6 +77,8 @@ class HomeViewController: UIViewController {
         
         view.addSubview(indicator)
     }
+    
+    // MARK: - Set Constraints
     
     private func tableViewConstraints() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
