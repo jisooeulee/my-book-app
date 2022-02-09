@@ -24,12 +24,11 @@ public enum Text {
     static let myBookTabBarTitle = "My Book"
     static let settingTabBarTitle = "Setting"
     
-    /// Alert Title, Message
-    static let alertTitle = "⚠️"
-    static let alertMessage = "と一致する本がありません！"
+    /// Search result Alert Title
+    static let alertTitle = "No Data😵"
     
-    /// Popup Message
-    static let registered = "registered!"
+    /// Check Button Message
+    static let registered = "Registered!"
     
     /// authorsLabel's default Text
     static let noInfo = "No Info"
