@@ -9,11 +9,24 @@ import UIKit
 
 class BookCell: UITableViewCell {
     
+    // MARK: - Set Item Values
+    
+    var item: Item? {
+        didSet {
+            guard let item = self.item else { return }
+            
+            titleLabel.text = item.volumeInfo.title
+            authorsLabel.text = item.volumeInfo.authors?.joined(separator: ", ") ?? Text.noInfo
+            descriptionLabel.text = item.volumeInfo.description ?? ""
+        }
+    }
+    
+    // MARK: - Create UI Component
+    
     let bookImageView: UIImageView = {
         let iv = UIImageView()
         
-        iv.layer.cornerRadius = 15
-        iv.cellDropShadow(color: .systemGray2, opacity: 0.2, offset: CGSize(width: 0, height: 0), radius: 13)
+        iv.setCornerRadius()
         iv.contentMode = .scaleToFill
         
         return iv
@@ -23,7 +36,7 @@ class BookCell: UITableViewCell {
         let lb = UILabel()
         
         lb.font = .systemFont(ofSize: 12, weight: .semibold)
-        lb.textColor = .systemBlue
+        lb.textColor = ColorTheme.customLightPink.color
         lb.textAlignment = .left
         
         return lb
@@ -40,7 +53,7 @@ class BookCell: UITableViewCell {
         let lb = UILabel()
         
         lb.font = .systemFont(ofSize: 11)
-        lb.textColor = .systemGray
+        lb.textColor = ColorTheme.customLightPink.color
         lb.textAlignment = .left
         
         return lb
@@ -49,24 +62,15 @@ class BookCell: UITableViewCell {
     let descriptionLabel: UILabel = {
         let lb = UILabel()
         
-        lb.font = .systemFont(ofSize: 10)
-        lb.textColor = .systemGray2
+        lb.font = .systemFont(ofSize: 9)
+        lb.textColor = ColorTheme.customLightPink.color
         lb.textAlignment = .left
         lb.numberOfLines = 4
         
         return lb
     }()
     
-    /// item情報が変更されるたびに値を更新する
-    var item: Item? {
-        didSet {
-            guard let item = self.item else { return }
-            
-            titleLabel.text = item.volumeInfo.title
-            authorsLabel.text = item.volumeInfo.authors?.joined(separator: ", ") ?? Text.noInfo
-            descriptionLabel.text = item.volumeInfo.description ?? ""
-        }
-    }
+    // MARK: - init
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -81,10 +85,12 @@ class BookCell: UITableViewCell {
         fatalError(ErrorMessage.unavailable)
     }
     
+    // MARK: - Setup UI
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        let inset = UIEdgeInsets(top: 14, left: 14, bottom: 14, right: 14)
+        let inset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         contentView.frame = contentView.frame.inset(by: inset)
     }
     
@@ -94,10 +100,7 @@ class BookCell: UITableViewCell {
     }
     
     func setup() {
-        selectionStyle = .none
-        contentView.layer.cornerRadius = 8
-        contentView.backgroundColor = .systemBackground
-        contentView.cellDropShadow(color: .systemGray2, opacity: 0.3, offset: CGSize(width: 0, height: 0), radius: 8)
+        configureBookCell()
     }
     
     func addViews() {
@@ -116,20 +119,22 @@ class BookCell: UITableViewCell {
         authorsLabelConstraints()
     }
     
+    // MARK: - Set Constraints
+    
     private func bookImageViewConstraints() {
         bookImageView.translatesAutoresizingMaskIntoConstraints = false
         
-        bookImageView.widthAnchor.constraint(equalToConstant: 85).isActive = true
-        bookImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        bookImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
+        bookImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15).isActive = true
+        bookImageView.widthAnchor.constraint(equalToConstant: 70).isActive = true
+        bookImageView.heightAnchor.constraint(equalToConstant: 95).isActive = true
         bookImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
     }
     
     private func titleLabelConstraints() {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        titleLabel.leadingAnchor.constraint(equalTo: bookImageView.trailingAnchor, constant: 10).isActive = true
-        titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: bookImageView.trailingAnchor, constant: 15).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30).isActive = true
         titleLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
     }
@@ -137,16 +142,16 @@ class BookCell: UITableViewCell {
     private func readCheckImageViewConstraints() {
         readCheckImageView.translatesAutoresizingMaskIntoConstraints = false
         
+        readCheckImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: -5).isActive = true
         readCheckImageView.widthAnchor.constraint(equalToConstant: 20).isActive = true
         readCheckImageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        readCheckImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: -5).isActive = true
         readCheckImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 3).isActive = true
     }
     
     private func authorsLabelConstraints() {
         authorsLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        authorsLabel.leadingAnchor.constraint(equalTo: bookImageView.trailingAnchor, constant: 10).isActive = true
+        authorsLabel.leadingAnchor.constraint(equalTo: bookImageView.trailingAnchor, constant: 15).isActive = true
         authorsLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5).isActive = true
         authorsLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5).isActive = true
         authorsLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
@@ -155,7 +160,7 @@ class BookCell: UITableViewCell {
     private func descriptionLabelConstraints() {
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        descriptionLabel.leadingAnchor.constraint(equalTo: bookImageView.trailingAnchor, constant: 10).isActive = true
+        descriptionLabel.leadingAnchor.constraint(equalTo: bookImageView.trailingAnchor, constant: 15).isActive = true
         descriptionLabel.topAnchor.constraint(equalTo: authorsLabel.bottomAnchor, constant: 5).isActive = true
         descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5).isActive = true
         descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5).isActive = true
