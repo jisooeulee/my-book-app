@@ -12,6 +12,8 @@ class DetailView: UIView {
     /// 読んだ本かどうかのFlag
     var isRead = false
     
+    // MARK: - Set Item Values
+    
     var item: Item? {
         didSet {
             guard let item = self.item else { return }
@@ -43,6 +45,8 @@ class DetailView: UIView {
         }
     }
     
+    // MARK: - Create UI
+    
     let readCheckButton: UIButton = {
         let bt = UIButton()
         bt.setImage(UIImage(named: Symbols.nonChecked), for: .normal)
@@ -53,8 +57,8 @@ class DetailView: UIView {
     let mainImageView: UIImageView = {
         let iv = UIImageView()
         
+        iv.setCornerRadius()
         iv.contentMode = .scaleToFill
-        iv.cellDropShadow()
         
         return iv
     }()
@@ -63,8 +67,8 @@ class DetailView: UIView {
         let bt = UIButton()
         
         bt.titleLabel?.adjustsFontSizeToFitWidth = true
-        bt.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
-        bt.setTitleColor(.systemBlue, for: .normal)
+        bt.titleLabel?.font = UIFont.systemFont(ofSize: 13, weight: .semibold)
+        bt.setTitleColor(ColorTheme.customLightPink.color, for: .normal)
         
         return bt
     }()
@@ -73,7 +77,8 @@ class DetailView: UIView {
         let lb = UILabel()
         
         lb.adjustsFontSizeToFitWidth = true
-        lb.font = UIFont.systemFont(ofSize: 13, weight: .regular)
+        lb.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+        lb.textColor = ColorTheme.customDarkPink.color
         lb.textAlignment = .center
         
         return lb
@@ -84,7 +89,7 @@ class DetailView: UIView {
         
         lb.adjustsFontSizeToFitWidth = true
         lb.backgroundColor = ColorTheme.customLightBlue.color
-        lb.font = UIFont.systemFont(ofSize: 12, weight: .regular)
+        lb.font = UIFont.systemFont(ofSize: 11, weight: .regular)
         lb.textColor = .white
         lb.textAlignment = .center
         lb.setCornerRadius(cornerRadius: 7)
@@ -95,11 +100,11 @@ class DetailView: UIView {
     let descriptionTextView: UITextView = {
         let tv = UITextView()
         
-        tv.backgroundColor = .systemGray
+        tv.backgroundColor = ColorTheme.customLightNavi.color
         tv.setCornerRadius()
         tv.font = UIFont.systemFont(ofSize: 11, weight: .regular)
         tv.textAlignment = .justified
-        tv.textColor = .white
+        tv.textColor = ColorTheme.customDarkPink.color
         tv.isUserInteractionEnabled = true
         tv.isEditable = false
         
@@ -107,6 +112,8 @@ class DetailView: UIView {
     }()
     
     let detailInfoStackView: DetailInfoStackView = DetailInfoStackView()
+    
+    // MARK: - Setup UI
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -122,7 +129,7 @@ class DetailView: UIView {
     }
     
     func setup() {
-        backgroundColor = .systemBackground
+        configureDetailView()
     }
     
     func addViews() {
@@ -141,32 +148,34 @@ class DetailView: UIView {
         readCheckImageViewConstraints()
         authorsLabelConstraints()
         descriptionTextViewConstraints()
-        publishedDateLabelConstraints()
+        retailPriceLabelConstraints()
         detailInfoStackViewConstraints()
     }
+    
+    // MARK: - Set Constraints
     
     private func readCheckImageViewConstraints() {
         readCheckButton.translatesAutoresizingMaskIntoConstraints = false
         
         readCheckButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
-        readCheckButton.widthAnchor.constraint(equalToConstant: 25).isActive = true
-        readCheckButton.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        readCheckButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15).isActive = true
+        readCheckButton.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        readCheckButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        readCheckButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
     }
     
     private func mainImageViewConstraints() {
         mainImageView.translatesAutoresizingMaskIntoConstraints = false
         
-        mainImageView.topAnchor.constraint(equalTo: readCheckButton.bottomAnchor).isActive = true
-        mainImageView.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        mainImageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        mainImageView.topAnchor.constraint(equalTo: readCheckButton.bottomAnchor, constant: 5).isActive = true
+        mainImageView.widthAnchor.constraint(equalToConstant: 120).isActive = true
+        mainImageView.heightAnchor.constraint(equalToConstant: 170).isActive = true
         mainImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
     }
     
     private func titleButtonConstraints() {
         titleButton.translatesAutoresizingMaskIntoConstraints = false
         
-        titleButton.topAnchor.constraint(equalTo: mainImageView.bottomAnchor, constant: 10).isActive = true
+        titleButton.topAnchor.constraint(equalTo: mainImageView.bottomAnchor, constant: 15).isActive = true
         titleButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.9).isActive = true
         titleButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
         titleButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
@@ -175,17 +184,17 @@ class DetailView: UIView {
     private func authorsLabelConstraints() {
         authorsLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        authorsLabel.topAnchor.constraint(equalTo: titleButton.bottomAnchor, constant: 5).isActive = true
+        authorsLabel.topAnchor.constraint(equalTo: titleButton.bottomAnchor, constant: 3).isActive = true
         authorsLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.9).isActive = true
         authorsLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         authorsLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
     }
     
-    private func publishedDateLabelConstraints() {
+    private func retailPriceLabelConstraints() {
         retailPriceLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        retailPriceLabel.topAnchor.constraint(equalTo: authorsLabel.bottomAnchor, constant: 5).isActive = true
-        retailPriceLabel.widthAnchor.constraint(equalToConstant: 90).isActive = true
+        retailPriceLabel.topAnchor.constraint(equalTo: authorsLabel.bottomAnchor, constant: 10).isActive = true
+        retailPriceLabel.widthAnchor.constraint(equalToConstant: 80).isActive = true
         retailPriceLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         retailPriceLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
     }
@@ -193,9 +202,9 @@ class DetailView: UIView {
     private func descriptionTextViewConstraints() {
         descriptionTextView.translatesAutoresizingMaskIntoConstraints = false
         
-        descriptionTextView.topAnchor.constraint(equalTo: retailPriceLabel.bottomAnchor, constant: 15).isActive = true
+        descriptionTextView.topAnchor.constraint(equalTo: retailPriceLabel.bottomAnchor, constant: 20).isActive = true
         descriptionTextView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.9).isActive = true
-        descriptionTextView.heightAnchor.constraint(equalToConstant: 120).isActive = true
+        descriptionTextView.heightAnchor.constraint(equalToConstant: 110).isActive = true
         descriptionTextView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
     }
     

@@ -9,12 +9,14 @@ import UIKit
 
 class DetailInfoView: UIView {
     
+    // MARK: - Create UI
+    
     let mainTitleLabel: UILabel = {
         let lb = UILabel()
         
         lb.adjustsFontSizeToFitWidth = true
-        lb.font = .systemFont(ofSize: 10, weight: .semibold)
-        lb.textColor = .systemBackground
+        lb.font = .systemFont(ofSize: 10, weight: .bold)
+        lb.textColor = ColorTheme.customLightPink.color
         lb.textAlignment = .center
         
         return lb
@@ -25,11 +27,13 @@ class DetailInfoView: UIView {
         
         lb.adjustsFontSizeToFitWidth = true
         lb.font = .systemFont(ofSize: 9, weight: .regular)
-        lb.textColor = .systemBackground
+        lb.textColor = ColorTheme.customDarkPink.color
         lb.textAlignment = .center
         
         return lb
     }()
+    
+    // MARK: - Setup UI
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -39,14 +43,13 @@ class DetailInfoView: UIView {
         setConstraints()
     }
     
+    @available(*, unavailable, message: "init(coder:) has not been implemented")
     required init?(coder: NSCoder) {
-        return nil
+        fatalError(ErrorMessage.unavailable)
     }
     
     func setup() {
-        backgroundColor = .white
-        setCornerRadius(cornerRadius: 4, masksToBounds: false)
-        detailStackViewDropShadow(color: UIColor.gray.cgColor)
+        configureDetailInfoView()
     }
     
     func addViews() {
@@ -59,13 +62,15 @@ class DetailInfoView: UIView {
         contentLabelConstraints()
     }
     
+    // MARK: - Set Constraints
+    
     private func mainTitleLabelConstraints() {
         mainTitleLabel.translatesAutoresizingMaskIntoConstraints = false
         
+        mainTitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
         mainTitleLabel.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
         mainTitleLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
         mainTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        mainTitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
     }
     
     private func contentLabelConstraints() {
