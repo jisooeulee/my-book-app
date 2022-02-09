@@ -9,6 +9,8 @@ import UIKit
 
 class DetailInfoStackView: UIView {
     
+    // MARK: - Create UI
+    
     let stackView: UIStackView = {
         let sv = UIStackView()
         
@@ -25,10 +27,11 @@ class DetailInfoStackView: UIView {
     let publishedDateView: DetailInfoView = DetailInfoView()
     let pageCountView: DetailInfoView = DetailInfoView()
     
+    // MARK: - Setup UI
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        setup()
         addViews()
         setConstraints()
     }
@@ -36,10 +39,6 @@ class DetailInfoStackView: UIView {
     @available(*, unavailable, message: "init(coder:) has not been implemented")
     required init?(coder: NSCoder) {
         fatalError(ErrorMessage.unavailable)
-    }
-    
-    func setup() {
-        backgroundColor = .clear
     }
     
     func addViews() {
@@ -54,8 +53,11 @@ class DetailInfoStackView: UIView {
         stackViewConstraints()
     }
     
+    // MARK: - Set Constraints
+    
     private func stackViewConstraints() {
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        
         stackView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         stackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         stackView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true

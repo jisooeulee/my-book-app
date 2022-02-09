@@ -18,6 +18,7 @@
 		E675C97827B17F660004811F /* FirebaseDatabaseSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = E675C97727B17F660004811F /* FirebaseDatabaseSwift-Beta */; };
 		E675C97A27B2A79C0004811F /* DetailInfoStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E675C97927B2A79C0004811F /* DetailInfoStackView.swift */; };
 		E675C97D27B2B1300004811F /* DetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E675C97C27B2B1300004811F /* DetailInfoView.swift */; };
+		E675C97F27B3CF7E0004811F /* DetailViewController+Processor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E675C97E27B3CF7E0004811F /* DetailViewController+Processor.swift */; };
 		E6846EE227ACD1FF004DE9A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846EE127ACD1FF004DE9A5 /* AppDelegate.swift */; };
 		E6846EE427ACD1FF004DE9A5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846EE327ACD1FF004DE9A5 /* SceneDelegate.swift */; };
 		E6846EE627ACD1FF004DE9A5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846EE527ACD1FF004DE9A5 /* HomeViewController.swift */; };
@@ -45,6 +46,7 @@
 		E675C96E27B17E920004811F /* FirebaseProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseProcessor.swift; sourceTree = "<group>"; };
 		E675C97927B2A79C0004811F /* DetailInfoStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoStackView.swift; sourceTree = "<group>"; };
 		E675C97C27B2B1300004811F /* DetailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoView.swift; sourceTree = "<group>"; };
+		E675C97E27B3CF7E0004811F /* DetailViewController+Processor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailViewController+Processor.swift"; sourceTree = "<group>"; };
 		E6846EDE27ACD1FF004DE9A5 /* MyBookApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBookApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6846EE127ACD1FF004DE9A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6846EE327ACD1FF004DE9A5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +101,15 @@
 			path = DetailScene;
 			sourceTree = "<group>";
 		};
+		E675C98027B3D0510004811F /* DetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E675C95227B0B4810004811F /* DetailViewController.swift */,
+				E675C97E27B3CF7E0004811F /* DetailViewController+Processor.swift */,
+			);
+			path = DetailViewController;
+			sourceTree = "<group>";
+		};
 		E6846ED527ACD1FF004DE9A5 = {
 			isa = PBXGroup;
 			children = (
@@ -139,8 +150,8 @@
 			children = (
 				E6846EF627ACE793004DE9A5 /* MainNavigationController.swift */,
 				E6846EF827ACE7A2004DE9A5 /* TabBarController.swift */,
-				E675C95227B0B4810004811F /* DetailViewController.swift */,
 				E6846EFA27AD1AED004DE9A5 /* HomeController */,
+				E675C98027B3D0510004811F /* DetailViewController */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -275,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E675C97F27B3CF7E0004811F /* DetailViewController+Processor.swift in Sources */,
 				E6846EFD27AD1B45004DE9A5 /* BookCell.swift in Sources */,
 				E6846F1727AEC70E004DE9A5 /* GoogleBooksApiService.swift in Sources */,
 				E6846F0927AD25A3004DE9A5 /* ColorTheme.swift in Sources */,
