@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SPAlert
 
 extension HomeViewController: UISearchBarDelegate {
     
@@ -42,7 +43,11 @@ extension HomeViewController: UISearchBarDelegate {
                 
             case .failure(_:):
                 self.indicator.stopAnimating()
-                self.showAlert(title: Text.alertTitle, message: "「\(searchText)」" + Text.alertMessage)
+                
+                let alertView = SPAlertView(title: Text.alertTitle, preset: .error)
+                alertView.duration = 1
+                
+                alertView.present()
             }
         }
     }
