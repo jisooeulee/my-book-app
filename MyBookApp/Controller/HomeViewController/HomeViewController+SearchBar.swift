@@ -51,17 +51,4 @@ extension HomeViewController: UISearchBarDelegate {
             }
         }
     }
-    
-    
-    // MARK: - resetTableView, scrollUp
-    
-    private func resetTableView() {
-        bookData.removeAllItems()
-        tableView.reloadData()
-    }
-    
-    private func scrollUp() {
-        let indexPath = IndexPath(row: NSNotFound, section: 0)
-        self.tableView.scrollToRow(at: indexPath as IndexPath, at: .top, animated: true)
-    }
 }

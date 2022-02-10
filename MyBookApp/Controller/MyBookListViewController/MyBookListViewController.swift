@@ -1,27 +1,21 @@
 //
-//  HomeViewController.swift
+//  MyBookListViewController.swift
 //  MyBookApp
 //
-//  Created by 279c on 2022/02/04.
+//  Created by 279c on 2022/02/09.
 //
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class MyBookListViewController: UIViewController {
     
-    let searchController = UISearchController()
     let tableView: UITableView = UITableView()
     var indicator: UIActivityIndicatorView = UIActivityIndicatorView()
     var bookData: BookDataProcessor = BookDataProcessor()
     
-    override func viewDidAppear(_ animated: Bool) {
-        configureSearchTextField(of: searchController)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // NavigationController & SearchBar & TableView
         setup()
         addViews()
         setConstraints()
@@ -30,7 +24,6 @@ class HomeViewController: UIViewController {
     func setup() {
         configureHomeViewController(view: view)
         configureNavigationController()
-        configureSearchBar()
         configureTableView()
         configureActivityIndicator()
     }
@@ -47,16 +40,6 @@ class HomeViewController: UIViewController {
         guard let navigationController = navigationController else { return }
         
         configureNavigationBar(of: navigationController)
-        configureNavigationItem()
-    }
-    
-    private func configureSearchBar() {
-        searchController.searchBar.delegate = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.tintColor = .white
-        searchController.searchBar.placeholder = Text.searchBarPlaceholder
-        
-        navigationItem.searchController = searchController
     }
     
     private func configureTableView() {
@@ -66,7 +49,7 @@ class HomeViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.backgroundColor = ColorTheme.customDarkNavi.color
         
-        tableView.register(BookCell.self, forCellReuseIdentifier: Cell.cellIdentifier)
+        tableView.register(ReadBookCell.self, forCellReuseIdentifier: Cell.readBookCellIdentifir)
     }
     
     func configureActivityIndicator() {
@@ -89,4 +72,5 @@ class HomeViewController: UIViewController {
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
 }
+
 

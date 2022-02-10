@@ -14,7 +14,7 @@ struct Book: Codable {
 struct Item: Codable {
     let id: String
     let volumeInfo: VolumeInfo
-    let saleInfo: SaleInfo
+    let saleInfo: SaleInfo?
 }
 
 struct VolumeInfo: Codable {
@@ -53,4 +53,12 @@ struct SaleInfo: Codable {
 struct RetailPrice: Codable {
     let amount: Int?
     let currencyCode: String?
+}
+
+class ReadStatus {
+    static let shared = ReadStatus()
+    
+    var isRead: Bool = false
+    
+    private init() { }
 }

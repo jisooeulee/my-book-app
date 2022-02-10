@@ -9,9 +9,6 @@ import UIKit
 
 class DetailView: UIView {
     
-    /// 読んだ本かどうかのFlag
-    var isRead = false
-    
     // MARK: - Set Item Values
     
     var item: Item? {
@@ -19,18 +16,19 @@ class DetailView: UIView {
             guard let item = self.item else { return }
             
             FirebaseProcessor.shared.searchBookInfo(keyword: item.id) { result in
-                self.isRead = result
+                ReadStatus.shared.isRead = result
                 
-                if self.isRead {
+                if ReadStatus.shared.isRead {
                     self.readCheckButton.setImage(UIImage(named: Symbols.checked), for: .normal)
                 } else {
                     self.readCheckButton.setImage(UIImage(named: Symbols.nonChecked), for: .normal)
                 }
             }
+            
             titleButton.setTitle(item.volumeInfo.title, for: .normal)
             authorsLabel.text = item.volumeInfo.authors?.joined(separator: ", ") ?? Text.noInfo
-            let currencyCode = item.saleInfo.retailPrice?.currencyCode ?? ""
-            let retailPrice = item.saleInfo.retailPrice?.amount?.description ?? Text.noInfo
+            let currencyCode = item.saleInfo?.retailPrice?.currencyCode ?? ""
+            let retailPrice = item.saleInfo?.retailPrice?.amount?.description ?? Text.noInfo
             retailPriceLabel.text = "\(currencyCode) \(retailPrice.description)"
             descriptionTextView.text = item.volumeInfo.description ?? Text.noInfo
             

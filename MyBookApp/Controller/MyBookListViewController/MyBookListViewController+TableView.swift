@@ -1,20 +1,20 @@
 //
-//  HomeViewController+TableView.swift
+//  MyBookListViewController+TableView.swift
 //  MyBookApp
 //
-//  Created by 279c on 2022/02/04.
+//  Created by 279c on 2022/02/09.
 //
 
 import UIKit
 
-extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+extension MyBookListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return bookData.getNumberOfItems()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Cell.cellIdentifier, for: indexPath) as? BookCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Cell.readBookCellIdentifir, for: indexPath) as? ReadBookCell else {
             fatalError(ErrorMessage.cellIdentifier)
         }
         
@@ -33,11 +33,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let selectedItem = bookData.getItem(from: indexPath) else { return }
-        
-        let vc = DetailViewController(item: selectedItem)
-        navigationController?.pushViewController(vc, animated: true)
+    // MARK: - resetTableView
+    
+    func resetTableView() {
+        bookData.removeAllItems()
+        tableView.reloadData()
     }
     
 }
+

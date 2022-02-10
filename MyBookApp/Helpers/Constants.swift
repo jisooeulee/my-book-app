@@ -41,7 +41,8 @@ public enum Text {
 }
 
 public enum Cell {
-    static let cellIdentifier = "BookCell"
+    static let homeCellIdentifier = "BookCell"
+    static let readBookCellIdentifir = "ReadBookCell"
 }
 
 public enum Symbols {
