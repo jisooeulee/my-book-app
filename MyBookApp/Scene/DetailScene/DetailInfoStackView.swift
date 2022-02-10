@@ -27,7 +27,7 @@ class DetailInfoStackView: UIView {
     let publishedDateView: DetailInfoView = DetailInfoView()
     let pageCountView: DetailInfoView = DetailInfoView()
     
-    // MARK: - Setup UI
+    // MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -40,6 +40,8 @@ class DetailInfoStackView: UIView {
     required init?(coder: NSCoder) {
         fatalError(ErrorMessage.unavailable)
     }
+    
+    // MARK: - Setup UI
     
     func addViews() {
         self.addSubview(stackView)

@@ -33,7 +33,7 @@ class DetailInfoView: UIView {
         return lb
     }()
     
-    // MARK: - Setup UI
+   // MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -48,8 +48,10 @@ class DetailInfoView: UIView {
         fatalError(ErrorMessage.unavailable)
     }
     
+    // MARK: - Setup UI
+    
     func setup() {
-        configureDetailInfoView()
+        setDetailInfoViewProperty()
     }
     
     func addViews() {
