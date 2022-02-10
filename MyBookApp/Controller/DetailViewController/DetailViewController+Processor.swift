@@ -43,7 +43,12 @@ extension DetailViewController {
             FirebaseProcessor.shared.deleteBookInfo(keyword: item.id)
             detailView.readCheckButton.setImage(UIImage(named: Symbols.nonChecked), for: .normal)
         } else {
-            FirebaseProcessor.shared.writeReadBookInfo(id: item.id)
+            let imageUrl = item.volumeInfo.imageLinks?.thumbnail ?? ImageUrl.defaultThumbnail
+            let authors = item.volumeInfo.authors?.joined(separator: ", ") ?? Text.noInfo
+            let title = item.volumeInfo.title ?? Text.noInfo
+            let description = item.volumeInfo.description ?? Text.noInfo
+            
+            FirebaseProcessor.shared.writeReadBookInfo(id: item.id, imageUrl: imageUrl, title: title, authors: authors, description: description)
             detailView.readCheckButton.setImage(UIImage(named: Symbols.checked), for: .normal)
             
             let alertView = SPAlertView(title: Text.registered, preset: .done)
