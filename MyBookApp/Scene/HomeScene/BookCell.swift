@@ -93,7 +93,7 @@ class BookCell: UITableViewCell {
     }
     
     func setup() {
-        configureBookCell()
+        setBookCellProperty()
     }
     
     func addViews() {

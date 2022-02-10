@@ -29,18 +29,20 @@ extension UIView {
         layer.masksToBounds = masksToBounds
     }
     
-    func configureDetailView() {
+    func setDetailViewProperty() {
         backgroundColor = ColorTheme.customDarkNavi.color
     }
     
-    func configureDetailInfoView() {
+    func setDetailInfoViewProperty() {
         backgroundColor = ColorTheme.customLightNavi.color
         setCornerRadius(cornerRadius: 4, masksToBounds: false)
     }
-
+    
 }
 
 extension UIViewController {
+    
+    // MARK: - Alert
     
     func showNoDataAlert() {
         let alertView = SPAlertView(title: Text.alertTitle, preset: .error)
@@ -56,28 +58,50 @@ extension UIViewController {
         alertView.present()
     }
     
-    func configureSearchTextField(of searchController: UISearchController) {
-        searchController.searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: Text.searchBarPlaceholder, attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
-        searchController.searchBar.searchTextField.textColor = .white
-    }
+    // MARK: - Setting of UIViewController
     
-    func configureHomeViewController(view: UIView) {
+    func setHomeViewControllerProperty() {
         view.backgroundColor = ColorTheme.customLightBlue.color
     }
     
-    func configureDetailViewController(view: UIView) {
-        view.backgroundColor = .white
+    func setMyBookListViewControllerProperty() {
+        navigationController?.isNavigationBarHidden = true
+        view.backgroundColor = ColorTheme.customDarkNavi.color
     }
     
-    func configureNavigationBar(of navigationController: UINavigationController) {
+    // MARK: - Setting of NavigationBar, NavigationItem
+    
+    func setNavigationBarProperty(of navigationController: UINavigationController) {
         navigationController.navigationBar.prefersLargeTitles = true
         navigationController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController.navigationBar.tintColor = .white
-        navigationController.navigationBar.barTintColor = ColorTheme.customLightNavi.color
     }
     
-    func configureNavigationItem() {
+    func setNavigationItemProperty() {
         navigationItem.title = Text.navigationItemTitle
+    }
+    
+    // MARK: - Setting of TableView
+    
+    func setTableViewProperty(of tableView: UITableView) {
+        tableView.rowHeight = 150
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = ColorTheme.customDarkNavi.color
+    }
+    
+    // MARK: - Setting of Search Bar
+    
+    func setSearchBarProperty(of searchController: UISearchController) {
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.tintColor = .white
+        searchController.searchBar.placeholder = Text.searchBarPlaceholder
+    }
+    
+    // MARK: - Setting of TextField
+    
+    func setSearchTextFieldProperty(of searchController: UISearchController) {
+        searchController.searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: Text.searchBarPlaceholder, attributes: [NSAttributedString.Key.foregroundColor : UIColor.white])
+        searchController.searchBar.searchTextField.textColor = .white
     }
     
 }
@@ -91,7 +115,7 @@ extension UIColor {
 
 extension UITableViewCell {
     
-    func configureBookCell() {
+    func setBookCellProperty() {
         selectionStyle = .none
         backgroundColor = ColorTheme.customDarkNavi.color
         contentView.backgroundColor = ColorTheme.customLightNavi.color

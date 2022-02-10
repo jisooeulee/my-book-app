@@ -111,7 +111,7 @@ class DetailView: UIView {
     
     let detailInfoStackView: DetailInfoStackView = DetailInfoStackView()
     
-    // MARK: - Setup UI
+    // MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -126,8 +126,10 @@ class DetailView: UIView {
         fatalError(ErrorMessage.unavailable)
     }
     
+    // MARK: - Setup UI
+    
     func setup() {
-        configureDetailView()
+        setDetailViewProperty()
     }
     
     func addViews() {
