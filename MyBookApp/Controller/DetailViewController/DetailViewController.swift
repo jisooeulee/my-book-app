@@ -26,10 +26,9 @@ class DetailViewController: UIViewController {
         populateUI(item)
     }
     
-    // MARK: - Set UI
-    
+    // MARK: - Setup UI
+
     func setup() {
-        configureDetailViewController(view: view)
         configureReadCheckButton()
         configureTitleButton()
     }

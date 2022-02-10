@@ -21,9 +21,10 @@ class MyBookListViewController: UIViewController {
         setConstraints()
     }
     
+    // MARK: - Setup UI
+
     func setup() {
-        configureHomeViewController(view: view)
-        configureNavigationController()
+        setMyBookListViewControllerProperty()
         configureTableView()
         configureActivityIndicator()
     }
@@ -36,18 +37,10 @@ class MyBookListViewController: UIViewController {
         tableViewConstraints()
     }
     
-    private func configureNavigationController() {
-        guard let navigationController = navigationController else { return }
-        
-        configureNavigationBar(of: navigationController)
-    }
-    
     private func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 150
-        tableView.separatorStyle = .none
-        tableView.backgroundColor = ColorTheme.customDarkNavi.color
+        setTableViewProperty(of: tableView)
         
         tableView.register(ReadBookCell.self, forCellReuseIdentifier: Cell.readBookCellIdentifir)
     }

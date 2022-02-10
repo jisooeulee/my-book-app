@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
     var bookData: BookDataProcessor = BookDataProcessor()
     
     override func viewDidAppear(_ animated: Bool) {
-        configureSearchTextField(of: searchController)
+        setSearchTextFieldProperty(of: searchController)
     }
     
     override func viewDidLoad() {
@@ -28,7 +28,7 @@ class HomeViewController: UIViewController {
     }
     
     func setup() {
-        configureHomeViewController(view: view)
+        setHomeViewControllerProperty()
         configureNavigationController()
         configureSearchBar()
         configureTableView()
@@ -46,15 +46,13 @@ class HomeViewController: UIViewController {
     private func configureNavigationController() {
         guard let navigationController = navigationController else { return }
         
-        configureNavigationBar(of: navigationController)
-        configureNavigationItem()
+        setNavigationBarProperty(of: navigationController)
+        setNavigationItemProperty()
     }
     
     private func configureSearchBar() {
         searchController.searchBar.delegate = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.tintColor = .white
-        searchController.searchBar.placeholder = Text.searchBarPlaceholder
+        setSearchBarProperty(of: searchController)
         
         navigationItem.searchController = searchController
     }
@@ -62,9 +60,7 @@ class HomeViewController: UIViewController {
     private func configureTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = 150
-        tableView.separatorStyle = .none
-        tableView.backgroundColor = ColorTheme.customDarkNavi.color
+        setTableViewProperty(of: tableView)
         
         tableView.register(BookCell.self, forCellReuseIdentifier: Cell.homeCellIdentifier)
     }

@@ -85,7 +85,7 @@ class ReadBookCell: UITableViewCell {
         fatalError(ErrorMessage.unavailable)
     }
     
-    // MARK: - Setup UI
+    // MARK: - Init
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -99,8 +99,10 @@ class ReadBookCell: UITableViewCell {
         bookImageView.image = nil
     }
     
+    // MARK: - Setup UI
+    
     func setup() {
-        configureBookCell()
+        setBookCellProperty()
     }
     
     func addViews() {
