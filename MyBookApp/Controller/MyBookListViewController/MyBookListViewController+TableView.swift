@@ -33,6 +33,14 @@ extension MyBookListViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard let item = bookData.getItem(from: indexPath) else { return }
+        
+        FirebaseProcessor.shared.deleteBookInfo(keyword: item.id)
+        bookData.removeItem(indexPath: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
+    }
+    
     // MARK: - resetTableView
     
     func resetTableView() {
