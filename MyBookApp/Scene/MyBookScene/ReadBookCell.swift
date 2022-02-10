@@ -23,11 +23,11 @@ class ReadBookCell: UITableViewCell {
     
     // MARK: - Create UI Component
     
-    let readCheckButton: UIButton = {
-        let bt = UIButton()
-        bt.setImage(UIImage(named: Symbols.checked), for: .normal)
+    let readCheckView: UIImageView = {
+        let iv = UIImageView()
+        iv.image = UIImage(named: Symbols.checked)
         
-        return bt
+        return iv
     }()
     
     let bookImageView: UIImageView = {
@@ -104,7 +104,7 @@ class ReadBookCell: UITableViewCell {
     }
     
     func addViews() {
-        contentView.addSubview(readCheckButton)
+        contentView.addSubview(readCheckView)
         contentView.addSubview(bookImageView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(authorsLabel)
@@ -122,12 +122,12 @@ class ReadBookCell: UITableViewCell {
     // MARK: - Set Constraints
     
     private func readCheckImageViewConstraints() {
-        readCheckButton.translatesAutoresizingMaskIntoConstraints = false
+        readCheckView.translatesAutoresizingMaskIntoConstraints = false
         
-        readCheckButton.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5).isActive = true
-        readCheckButton.widthAnchor.constraint(equalToConstant: 20).isActive = true
-        readCheckButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        readCheckButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5).isActive = true
+        readCheckView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5).isActive = true
+        readCheckView.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        readCheckView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        readCheckView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5).isActive = true
     }
     
     private func bookImageViewConstraints() {
@@ -163,7 +163,7 @@ class ReadBookCell: UITableViewCell {
         descriptionLabel.leadingAnchor.constraint(equalTo: bookImageView.trailingAnchor, constant: 15).isActive = true
         descriptionLabel.topAnchor.constraint(equalTo: authorsLabel.bottomAnchor, constant: 5).isActive = true
         descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5).isActive = true
-        descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5).isActive = true
+        descriptionLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
 }

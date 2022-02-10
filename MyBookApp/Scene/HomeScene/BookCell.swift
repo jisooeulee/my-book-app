@@ -145,7 +145,7 @@ class BookCell: UITableViewCell {
         descriptionLabel.leadingAnchor.constraint(equalTo: bookImageView.trailingAnchor, constant: 15).isActive = true
         descriptionLabel.topAnchor.constraint(equalTo: authorsLabel.bottomAnchor, constant: 5).isActive = true
         descriptionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -5).isActive = true
-        descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5).isActive = true
+        descriptionLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
 }
