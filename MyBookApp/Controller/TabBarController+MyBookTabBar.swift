@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SPAlert
 
 extension TabBarController {
     
@@ -21,11 +20,8 @@ extension TabBarController {
                 
                 if result.isEmpty {
                     self.readBookListVC.indicator.stopAnimating()
+                    self.showNoDataAlert()
                     
-                    let alertView = SPAlertView(title: Text.alertTitle, preset: .error)
-                    alertView.duration = 1
-                    
-                    alertView.present()
                     return
                 }
                 

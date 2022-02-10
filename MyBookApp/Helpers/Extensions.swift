@@ -7,6 +7,7 @@
 
 import UIKit
 import Kingfisher
+import SPAlert
 
 extension Collection {
     subscript (safe index: Index) -> Element? {
@@ -41,15 +42,18 @@ extension UIView {
 
 extension UIViewController {
     
-    /// Alertを表示する
-    func showAlert(title: String, message: String) {
-        DispatchQueue.main.async {
-            let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-            alert.addAction(action)
-            
-            self.present(alert, animated: true, completion: nil)
-        }
+    func showNoDataAlert() {
+        let alertView = SPAlertView(title: Text.alertTitle, preset: .error)
+        alertView.duration = 1
+        
+        alertView.present()
+    }
+    
+    func showDoneAlert() {
+        let alertView = SPAlertView(title: Text.registered, preset: .done)
+        alertView.duration = 0.5
+        
+        alertView.present()
     }
     
     func configureSearchTextField(of searchController: UISearchController) {
