@@ -9,10 +9,13 @@ import UIKit
 
 class TabBarController: UITabBarController {
     
+    let readBookListVC = MyBookListViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tabBar.backgroundColor = ColorTheme.customDarkNavi.color
+        tabBar.barTintColor = ColorTheme.customDarkNavi.color
         tabBar.tintColor = .systemRed
         tabBar.unselectedItemTintColor = .white
         
@@ -21,8 +24,6 @@ class TabBarController: UITabBarController {
         homeVC.tabBarItem.title = Text.homeTabBarTitle
         homeVC.tabBarItem.image = UIImage(systemName: Symbols.starFill)
         
-        let readBookListVC = UIViewController()
-        readBookListVC.view.backgroundColor = .orange // TODO: 削除予定
         readBookListVC.tabBarItem.selectedImage = UIImage(systemName: Symbols.checkMarkCircle)
         readBookListVC.tabBarItem.title = Text.myBookTabBarTitle
         readBookListVC.tabBarItem.image = UIImage(systemName: Symbols.checkMarkCircleFill)
