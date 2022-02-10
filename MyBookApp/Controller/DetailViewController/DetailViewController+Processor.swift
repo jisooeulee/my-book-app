@@ -7,7 +7,6 @@
 
 import UIKit
 import SafariServices
-import SPAlert
 
 extension DetailViewController {
     
@@ -50,11 +49,7 @@ extension DetailViewController {
             
             FirebaseProcessor.shared.writeReadBookInfo(id: item.id, imageUrl: imageUrl, title: title, authors: authors, description: description)
             detailView.readCheckButton.setImage(UIImage(named: Symbols.checked), for: .normal)
-            
-            let alertView = SPAlertView(title: Text.registered, preset: .done)
-            alertView.duration = 0.5
-            
-            alertView.present()
+            showDoneAlert()
         }
     }
 }
