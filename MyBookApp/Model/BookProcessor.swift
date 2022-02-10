@@ -23,6 +23,10 @@ class BookDataProcessor {
         items += newItems
     }
     
+    func removeItem(indexPath: Int) {
+        items.remove(at: indexPath)
+    }
+    
     func removeAllItems() {
         items.removeAll()
     }
