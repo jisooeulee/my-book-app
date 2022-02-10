@@ -69,6 +69,7 @@ extension UIViewController {
         navigationController.navigationBar.prefersLargeTitles = true
         navigationController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController.navigationBar.tintColor = .white
+        navigationController.navigationBar.barTintColor = ColorTheme.customLightNavi.color
     }
     
     func configureNavigationItem() {
