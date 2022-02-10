@@ -10,6 +10,7 @@ import UIKit
 extension TabBarController {
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        scrollUp()
         // My Book Tabの場合、My Book Listを表示する
         if tabBar.items?.firstIndex(of: item) == 1 {
             self.readBookListVC.configureActivityIndicator()
@@ -35,5 +36,10 @@ extension TabBarController {
                 self.readBookListVC.tableView.reloadData()
             }
         }
+    }
+    
+    func scrollUp() {
+        let indexPath = IndexPath(row: NSNotFound, section: 0)
+        self.readBookListVC.tableView.scrollToRow(at: indexPath as IndexPath, at: .top, animated: true)
     }
 }
