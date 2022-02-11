@@ -68,7 +68,7 @@ class HomeViewController: UIViewController {
     func configureActivityIndicator() {
         indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
         indicator.style = UIActivityIndicatorView.Style.large
-        indicator.color = .systemRed
+        indicator.color = ColorTheme.customMint.color
         indicator.center = self.view.center
         
         view.addSubview(indicator)

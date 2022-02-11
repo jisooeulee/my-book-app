@@ -13,6 +13,7 @@ enum ColorTheme {
     case customDarkNavi
     case customLightPink
     case customDarkPink
+    case customMint
     
     var color: UIColor {
         switch self {
@@ -26,6 +27,8 @@ enum ColorTheme {
             return UIColor(r: 231, g: 191, b: 193)
         case .customDarkPink:
             return UIColor(r: 187, g: 159, b: 165)
+        case .customMint:
+            return UIColor(r: 102, g: 232, b: 169)
         }
     }
 }
