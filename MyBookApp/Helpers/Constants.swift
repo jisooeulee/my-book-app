@@ -64,3 +64,8 @@ public enum ErrorMessage {
     static let unavailable = "init(coder:) has not been implemented"
     static let cellIdentifier = "Could not dequeue cell with identifier: BookCell"
 }
+
+public enum BeforeSelectedTab {
+    static let homeTab = 0
+    static let myBookTab = 1
+}

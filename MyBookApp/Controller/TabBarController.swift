@@ -9,6 +9,7 @@ import UIKit
 
 class TabBarController: UITabBarController {
     
+    var beforeSelectedTab: Int?
     let readBookListVC = MyBookListViewController()
     
     override func viewDidLoad() {
