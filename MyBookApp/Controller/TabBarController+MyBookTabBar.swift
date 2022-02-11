@@ -10,31 +10,42 @@ import UIKit
 extension TabBarController {
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        let selectedTab = tabBar.items?.firstIndex(of: item)
+        
         scrollUp()
-        // My Book Tabの場合、My Book Listを表示する
-        if tabBar.items?.firstIndex(of: item) == 1 {
-            self.readBookListVC.configureActivityIndicator()
-            self.readBookListVC.indicator.startAnimating()
-            
-            FirebaseProcessor.shared.fetchBookInfo { [weak self] result in
-                guard let self = self else { return }
+        
+        /// 0: 'home' tab bar, 1: 'my book' tab bar
+        switch selectedTab {
+        case 0:
+            beforeSelectedTab = BeforeSelectedTab.homeTab
+        case 1: // my book listを表示する
+            if beforeSelectedTab != selectedTab {
+                self.readBookListVC.configureActivityIndicator()
+                self.readBookListVC.indicator.startAnimating()
                 
-                if result.isEmpty {
-                    self.readBookListVC.indicator.stopAnimating()
-                    self.showNoDataAlert()
+                FirebaseProcessor.shared.fetchBookInfo { [weak self] result in
+                    guard let self = self else { return }
                     
-                    return
+                    if result.isEmpty {
+                        self.readBookListVC.indicator.stopAnimating()
+                        self.showNoDataAlert()
+                        
+                        return
+                    }
+                    
+                    let sortedItem = result.sorted { s1, s2 in
+                        return s1.id < s2.id
+                    }
+                    
+                    self.readBookListVC.indicator.stopAnimating()
+                    self.readBookListVC.resetTableView()
+                    self.readBookListVC.bookData.addItems(newItems: sortedItem)
+                    self.readBookListVC.tableView.reloadData()
                 }
-                
-                let sortedItem = result.sorted { s1, s2 in
-                    return s1.id < s2.id
-                }
-                
-                self.readBookListVC.indicator.stopAnimating()
-                self.readBookListVC.resetTableView()
-                self.readBookListVC.bookData.addItems(newItems: sortedItem)
-                self.readBookListVC.tableView.reloadData()
+                beforeSelectedTab = BeforeSelectedTab.myBookTab
             }
+        default:
+            break
         }
     }
     
