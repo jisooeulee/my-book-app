@@ -28,8 +28,9 @@ class HomeViewController: UIViewController {
     }
     
     func setup() {
-        setHomeViewControllerProperty()
-        configureNavigationController()
+        guard let navigationController = navigationController else { return }
+        
+        setHomeViewProperty(of: navigationController)
         configureSearchBar()
         configureTableView()
         configureActivityIndicator()
@@ -41,13 +42,6 @@ class HomeViewController: UIViewController {
     
     func setConstraints() {
         tableViewConstraints()
-    }
-    
-    private func configureNavigationController() {
-        guard let navigationController = navigationController else { return }
-        
-        setNavigationBarProperty(of: navigationController)
-        setNavigationItemProperty()
     }
     
     private func configureSearchBar() {

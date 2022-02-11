@@ -58,27 +58,21 @@ extension UIViewController {
         alertView.present()
     }
     
-    // MARK: - Setting of UIViewController
+    // MARK: - Setting of HomeView, MyBookListView
     
-    func setHomeViewControllerProperty() {
+    func setHomeViewProperty(of navigationController: UINavigationController) {
         view.backgroundColor = ColorTheme.customLightBlue.color
-    }
-    
-    func setMyBookListViewControllerProperty() {
-        navigationController?.isNavigationBarHidden = true
-        view.backgroundColor = ColorTheme.customDarkNavi.color
-    }
-    
-    // MARK: - Setting of NavigationBar, NavigationItem
-    
-    func setNavigationBarProperty(of navigationController: UINavigationController) {
+        
         navigationController.navigationBar.prefersLargeTitles = true
         navigationController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController.navigationBar.tintColor = .white
+        
+        navigationItem.title = Text.navigationItemTitle
     }
     
-    func setNavigationItemProperty() {
-        navigationItem.title = Text.navigationItemTitle
+    func setMyBookListViewProperty() {
+        navigationController?.isNavigationBarHidden = true
+        view.backgroundColor = ColorTheme.customDarkNavi.color
     }
     
     // MARK: - Setting of TableView
