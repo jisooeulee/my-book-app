@@ -15,10 +15,7 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabBar.backgroundColor = ColorTheme.customDarkNavi.color
-        tabBar.barTintColor = ColorTheme.customDarkNavi.color
-        tabBar.tintColor = .systemRed
-        tabBar.unselectedItemTintColor = .white
+        setTabBarProperty()
         
         let homeVC = UINavigationController(rootViewController: HomeViewController())
         homeVC.tabBarItem.selectedImage = UIImage(systemName: Symbols.star)

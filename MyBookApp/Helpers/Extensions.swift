@@ -122,3 +122,15 @@ extension UITableViewCell {
         contentView.setCornerRadius()
     }
 }
+
+extension UITabBarController {
+    
+    func setTabBarProperty() {
+        tabBar.backgroundColor = ColorTheme.customDarkNavi.color
+        tabBar.barTintColor = ColorTheme.customDarkNavi.color
+        tabBar.tintColor = ColorTheme.customMint.color
+        tabBar.unselectedItemTintColor = .white
+        tabBar.isTranslucent = false
+    }
+    
+}
