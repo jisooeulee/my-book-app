@@ -29,7 +29,6 @@
 		E6846EE627ACD1FF004DE9A5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846EE527ACD1FF004DE9A5 /* HomeViewController.swift */; };
 		E6846EEB27ACD201004DE9A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6846EEA27ACD201004DE9A5 /* Assets.xcassets */; };
 		E6846EEE27ACD201004DE9A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6846EEC27ACD201004DE9A5 /* LaunchScreen.storyboard */; };
-		E6846EF727ACE793004DE9A5 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846EF627ACE793004DE9A5 /* MainNavigationController.swift */; };
 		E6846EF927ACE7A2004DE9A5 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846EF827ACE7A2004DE9A5 /* TabBarController.swift */; };
 		E6846EFD27AD1B45004DE9A5 /* BookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846EFC27AD1B45004DE9A5 /* BookCell.swift */; };
 		E6846F0327AD1E8D004DE9A5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846F0227AD1E8D004DE9A5 /* Extensions.swift */; };
@@ -63,7 +62,6 @@
 		E6846EEA27ACD201004DE9A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E6846EED27ACD201004DE9A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E6846EEF27ACD201004DE9A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E6846EF627ACE793004DE9A5 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		E6846EF827ACE7A2004DE9A5 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		E6846EFC27AD1B45004DE9A5 /* BookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCell.swift; sourceTree = "<group>"; };
 		E6846F0227AD1E8D004DE9A5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -183,7 +181,6 @@
 		E6846EF527ACE780004DE9A5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E6846EF627ACE793004DE9A5 /* MainNavigationController.swift */,
 				E6846EF827ACE7A2004DE9A5 /* TabBarController.swift */,
 				E675C98F27B41A120004811F /* TabBarController+MyBookTabBar.swift */,
 				E6846EFA27AD1AED004DE9A5 /* HomeViewController */,
@@ -336,7 +333,6 @@
 				E6846EE227ACD1FF004DE9A5 /* AppDelegate.swift in Sources */,
 				E6846F0727AD1F25004DE9A5 /* HomeViewController+SearchBar.swift in Sources */,
 				E6846F1127AE7DB4004DE9A5 /* BookProcessor.swift in Sources */,
-				E6846EF727ACE793004DE9A5 /* MainNavigationController.swift in Sources */,
 				E6846EF927ACE7A2004DE9A5 /* TabBarController.swift in Sources */,
 				E675C95527B0B5DE0004811F /* DetailView.swift in Sources */,
 				E6846F0F27AD8879004DE9A5 /* BookModels.swift in Sources */,

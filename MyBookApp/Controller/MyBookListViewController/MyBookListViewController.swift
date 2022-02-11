@@ -24,7 +24,7 @@ class MyBookListViewController: UIViewController {
     // MARK: - Setup UI
 
     func setup() {
-        setMyBookListViewControllerProperty()
+        setMyBookListViewProperty()
         configureTableView()
         configureActivityIndicator()
     }
