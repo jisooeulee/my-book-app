@@ -157,7 +157,7 @@ class DetailView: UIView {
     private func readCheckImageViewConstraints() {
         readCheckButton.translatesAutoresizingMaskIntoConstraints = false
         
-        readCheckButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        readCheckButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
         readCheckButton.widthAnchor.constraint(equalToConstant: 20).isActive = true
         readCheckButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
         readCheckButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
@@ -166,16 +166,16 @@ class DetailView: UIView {
     private func mainImageViewConstraints() {
         mainImageView.translatesAutoresizingMaskIntoConstraints = false
         
-        mainImageView.topAnchor.constraint(equalTo: readCheckButton.bottomAnchor, constant: 5).isActive = true
-        mainImageView.widthAnchor.constraint(equalToConstant: 120).isActive = true
-        mainImageView.heightAnchor.constraint(equalToConstant: 170).isActive = true
+        mainImageView.topAnchor.constraint(equalTo: readCheckButton.bottomAnchor, constant: 12).isActive = true
+        mainImageView.widthAnchor.constraint(equalToConstant: 110).isActive = true
+        mainImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
         mainImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
     }
     
     private func titleButtonConstraints() {
         titleButton.translatesAutoresizingMaskIntoConstraints = false
         
-        titleButton.topAnchor.constraint(equalTo: mainImageView.bottomAnchor, constant: 15).isActive = true
+        titleButton.topAnchor.constraint(equalTo: mainImageView.bottomAnchor, constant: 20).isActive = true
         titleButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.9).isActive = true
         titleButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
         titleButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
@@ -186,16 +186,16 @@ class DetailView: UIView {
         
         authorsLabel.topAnchor.constraint(equalTo: titleButton.bottomAnchor, constant: 3).isActive = true
         authorsLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.9).isActive = true
-        authorsLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        authorsLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
         authorsLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
     }
     
     private func retailPriceLabelConstraints() {
         retailPriceLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        retailPriceLabel.topAnchor.constraint(equalTo: authorsLabel.bottomAnchor, constant: 10).isActive = true
+        retailPriceLabel.topAnchor.constraint(equalTo: authorsLabel.bottomAnchor, constant: 15).isActive = true
         retailPriceLabel.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        retailPriceLabel.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        retailPriceLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
         retailPriceLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
     }
     
@@ -213,7 +213,7 @@ class DetailView: UIView {
         
         detailInfoStackView.topAnchor.constraint(equalTo: descriptionTextView.bottomAnchor, constant: 20).isActive = true
         detailInfoStackView.widthAnchor.constraint(equalTo: descriptionTextView.widthAnchor).isActive = true
-        detailInfoStackView.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        detailInfoStackView.heightAnchor.constraint(equalToConstant: 90).isActive = true
         detailInfoStackView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
     }
     
