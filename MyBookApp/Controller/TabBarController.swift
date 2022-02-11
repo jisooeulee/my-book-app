@@ -29,13 +29,7 @@ class TabBarController: UITabBarController {
         readBookListVC.tabBarItem.title = Text.myBookTabBarTitle
         readBookListVC.tabBarItem.image = UIImage(systemName: Symbols.checkMarkCircleFill)
         
-        let settingVC = UIViewController()
-        settingVC.view.backgroundColor = .lightGray // TODO: 削除予定
-        settingVC.tabBarItem.selectedImage = UIImage(systemName: Symbols.gearShape)
-        settingVC.tabBarItem.title = Text.settingTabBarTitle
-        settingVC.tabBarItem.image = UIImage(systemName: Symbols.gearShapeFill)
-        
-        viewControllers = [homeVC, readBookListVC, settingVC]
+        viewControllers = [homeVC, readBookListVC]
     }
     
 }
