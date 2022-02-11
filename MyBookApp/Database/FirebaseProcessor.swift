@@ -68,12 +68,7 @@ class FirebaseProcessor {
     
     /// DBにある本の情報を削除する
     func deleteBookInfo(keyword: String) {
-        bookRef.child(keyword).removeValue(completionBlock: { (ref, error) in
-            if error != nil {
-                debugPrint("failed to remove reply")
-                return
-            }
-        })
+        bookRef.child(keyword).removeValue()
     }
     
 }
