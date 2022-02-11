@@ -24,6 +24,7 @@
 		E675C98827B405760004811F /* MyBookListViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E675C98727B405760004811F /* MyBookListViewController+TableView.swift */; };
 		E675C98E27B406890004811F /* ReadBookCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E675C98D27B406890004811F /* ReadBookCell.swift */; };
 		E675C99027B41A120004811F /* TabBarController+MyBookTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E675C98F27B41A120004811F /* TabBarController+MyBookTabBar.swift */; };
+		E675C99B27B66CB00004811F /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = E675C99A27B66CB00004811F /* AppUtility.swift */; };
 		E6846EE227ACD1FF004DE9A5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846EE127ACD1FF004DE9A5 /* AppDelegate.swift */; };
 		E6846EE427ACD1FF004DE9A5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846EE327ACD1FF004DE9A5 /* SceneDelegate.swift */; };
 		E6846EE627ACD1FF004DE9A5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6846EE527ACD1FF004DE9A5 /* HomeViewController.swift */; };
@@ -56,6 +57,7 @@
 		E675C98727B405760004811F /* MyBookListViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyBookListViewController+TableView.swift"; sourceTree = "<group>"; };
 		E675C98D27B406890004811F /* ReadBookCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadBookCell.swift; sourceTree = "<group>"; };
 		E675C98F27B41A120004811F /* TabBarController+MyBookTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TabBarController+MyBookTabBar.swift"; sourceTree = "<group>"; };
+		E675C99A27B66CB00004811F /* AppUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
 		E6846EDE27ACD1FF004DE9A5 /* MyBookApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBookApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6846EE127ACD1FF004DE9A5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6846EE327ACD1FF004DE9A5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				E675C94E27AFE0120004811F /* Constants.swift */,
 				E6846F0227AD1E8D004DE9A5 /* Extensions.swift */,
 				E6846F0827AD25A3004DE9A5 /* ColorTheme.swift */,
+				E675C99A27B66CB00004811F /* AppUtility.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 			files = (
 				E675C97F27B3CF7E0004811F /* DetailViewController+Processor.swift in Sources */,
 				E675C98627B404FF0004811F /* MyBookListViewController.swift in Sources */,
+				E675C99B27B66CB00004811F /* AppUtility.swift in Sources */,
 				E6846EFD27AD1B45004DE9A5 /* BookCell.swift in Sources */,
 				E6846F1727AEC70E004DE9A5 /* GoogleBooksApiService.swift in Sources */,
 				E6846F0927AD25A3004DE9A5 /* ColorTheme.swift in Sources */,
