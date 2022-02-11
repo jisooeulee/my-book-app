@@ -10,14 +10,13 @@ import UIKit
 class TabBarController: UITabBarController {
     
     var beforeSelectedTab: Int?
+    let homeVC = UINavigationController(rootViewController: HomeViewController())
     let readBookListVC = MyBookListViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setTabBarProperty()
         
-        let homeVC = UINavigationController(rootViewController: HomeViewController())
         homeVC.tabBarItem.selectedImage = UIImage(systemName: Symbols.star)
         homeVC.tabBarItem.title = Text.homeTabBarTitle
         homeVC.tabBarItem.image = UIImage(systemName: Symbols.starFill)
