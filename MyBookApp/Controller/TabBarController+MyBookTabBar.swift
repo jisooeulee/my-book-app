@@ -17,6 +17,9 @@ extension TabBarController {
         /// 0: 'home' tab bar, 1: 'my book' tab bar
         switch selectedTab {
         case 0:
+            if beforeSelectedTab != selectedTab {
+                self.homeVC.popViewController(animated: true)
+            }
             beforeSelectedTab = BeforeSelectedTab.homeTab
         case 1: // my book listを表示する
             if beforeSelectedTab != selectedTab {
@@ -48,6 +51,8 @@ extension TabBarController {
             break
         }
     }
+    
+    // MARK: - Scroll Up
     
     func scrollUp() {
         let indexPath = IndexPath(row: NSNotFound, section: 0)
