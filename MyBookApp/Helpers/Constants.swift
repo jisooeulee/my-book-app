@@ -65,7 +65,7 @@ public enum ErrorMessage {
     static let cellIdentifier = "Could not dequeue cell with identifier: BookCell"
 }
 
-public enum BeforeSelectedTab {
+public enum SelectedTab {
     static let homeTab = 0
     static let myBookTab = 1
 }
