@@ -16,19 +16,20 @@ extension TabBarController {
         
         /// 0: 'home' tab bar, 1: 'my book' tab bar
         switch selectedTab {
-        case 0:
+        case 0: // home viewを表示する
             if beforeSelectedTab != selectedTab {
                 self.homeVC.popViewController(animated: true)
             }
-            beforeSelectedTab = BeforeSelectedTab.homeTab
+            beforeSelectedTab = SelectedTab.homeTab
         case 1: // my book listを表示する
             if beforeSelectedTab != selectedTab {
                 self.readBookListVC.configureActivityIndicator()
                 self.readBookListVC.indicator.startAnimating()
                 
-                FirebaseProcessor.shared.fetchBookInfo { [weak self] result in
+                FirebaseService.shared.fetchBookInfo { [weak self] result in
                     guard let self = self else { return }
                     
+                    // 検索キーワードと一致する本の情報がない場合
                     if result.isEmpty {
                         self.readBookListVC.indicator.stopAnimating()
                         self.showNoDataAlert()
@@ -45,7 +46,7 @@ extension TabBarController {
                     self.readBookListVC.bookData.addItems(newItems: sortedItem)
                     self.readBookListVC.tableView.reloadData()
                 }
-                beforeSelectedTab = BeforeSelectedTab.myBookTab
+                beforeSelectedTab = SelectedTab.myBookTab
             }
         default:
             break
