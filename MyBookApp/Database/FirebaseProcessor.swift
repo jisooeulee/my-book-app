@@ -20,17 +20,17 @@ class FirebaseProcessor {
     func writeReadBookInfo(id: String, imageUrl: String, title: String, authors: String, description: String) {
         let boookItemRef = bookRef.child(id)
         let itemValues: [String: Any] = [
-            "isRead": true, "id": id, "imageUrl": imageUrl, "title": title, "authors": authors, "description": description,
+            PropertyName.isRead: true, PropertyName.id: id, PropertyName.imageUrl: imageUrl, PropertyName.title: title, PropertyName.authors: authors, PropertyName.description: description,
         ]
         
         boookItemRef.setValue(itemValues)
     }
     
     /// 読んだ本かどうかを確認するため、本の情報の有無DBから検索する
-    func searchBookInfo(keyword: String, completion: @escaping (_ result: Bool) -> Void) {
+    func searchBookInfo(_ id: String, completion: @escaping (_ result: Bool) -> Void) {
         var isRead = false
-        bookRef.child(keyword).observeSingleEvent(of: .value) { (snapshot) in
-            if snapshot.hasChild("isRead") {
+        bookRef.child(id).observeSingleEvent(of: .value) { (snapshot) in
+            if snapshot.hasChild(PropertyName.isRead) {
                 isRead = true
                 completion(isRead)
             } else {
@@ -51,11 +51,11 @@ class FirebaseProcessor {
             }
             
             for volumeInfo in value.values {
-                let id = volumeInfo["id"] as! String
-                let imageUrl = volumeInfo["imageUrl"] as! String
-                let title = volumeInfo["title"] as! String
-                let authors = volumeInfo["authors"] as! String
-                let description = volumeInfo["description"] as! String
+                let id = volumeInfo[PropertyName.id] as! String
+                let imageUrl = volumeInfo[PropertyName.imageUrl] as! String
+                let title = volumeInfo[PropertyName.title] as! String
+                let authors = volumeInfo[PropertyName.authors] as! String
+                let description = volumeInfo[PropertyName.description] as! String
                 
                 let volumesInfo = VolumeInfo(title: title, authors: [authors], publishedDate: nil, imageLinks: ImageLinks(smallThumbnail: nil, thumbnail: imageUrl), description: description, googleBooksWebLink: nil, categories: nil, publisher: nil, pageCount: nil)
                 
@@ -67,8 +67,8 @@ class FirebaseProcessor {
     }
     
     /// DBにある本の情報を削除する
-    func deleteBookInfo(keyword: String) {
-        bookRef.child(keyword).removeValue()
+    func deleteBookInfo(_ id: String) {
+        bookRef.child(id).removeValue()
     }
     
 }

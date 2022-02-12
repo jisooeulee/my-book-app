@@ -39,7 +39,7 @@ extension DetailViewController {
     /// readCheckButtonをTapする場合、iconの切り替え&DB情報を変更
     @objc func readCheckButtonTapped(_ sender: UITapGestureRecognizer) {
         if detailView.readCheckButton.imageView?.image == UIImage(named: Symbols.checked) {
-            FirebaseProcessor.shared.deleteBookInfo(keyword: item.id)
+            FirebaseProcessor.shared.deleteBookInfo(item.id)
             detailView.readCheckButton.setImage(UIImage(named: Symbols.nonChecked), for: .normal)
         } else {
             let imageUrl = item.volumeInfo.imageLinks?.thumbnail ?? ImageUrl.defaultThumbnail
