@@ -31,10 +31,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="aCp-Oa-gD7" secondAttribute="bottom" id="Da5-bs-H9v"/>
-                            <constraint firstItem="aCp-Oa-gD7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="O9m-Jj-eGs"/>
+                            <constraint firstItem="aCp-Oa-gD7" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="O9m-Jj-eGs"/>
                             <constraint firstItem="QHj-af-c2n" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Tpu-w1-Eka"/>
                             <constraint firstItem="aCp-Oa-gD7" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="pMT-qV-miR"/>
-                            <constraint firstItem="aCp-Oa-gD7" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ups-gp-hau"/>
+                            <constraint firstItem="aCp-Oa-gD7" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailing" id="ups-gp-hau"/>
                             <constraint firstItem="QHj-af-c2n" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ydG-tG-zBO"/>
                         </constraints>
                     </view>
