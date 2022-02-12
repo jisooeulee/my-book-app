@@ -69,3 +69,12 @@ public enum BeforeSelectedTab {
     static let homeTab = 0
     static let myBookTab = 1
 }
+
+public enum PropertyName {
+    static let isRead = "isRead"
+    static let id = "id"
+    static let imageUrl = "imageUrl"
+    static let title = "title"
+    static let authors = "authors"
+    static let description = "description"
+}
