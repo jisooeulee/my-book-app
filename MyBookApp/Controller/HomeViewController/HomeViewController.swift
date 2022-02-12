@@ -14,6 +14,9 @@ class HomeViewController: UIViewController {
     var indicator: UIActivityIndicatorView = UIActivityIndicatorView()
     var bookData: BookDataProcessor = BookDataProcessor()
     
+    /// API
+    var api: ApiProcessor!
+    
     override func viewDidAppear(_ animated: Bool) {
         setSearchTextFieldProperty(of: searchController)
     }
@@ -34,6 +37,7 @@ class HomeViewController: UIViewController {
         configureSearchBar()
         configureTableView()
         configureActivityIndicator()
+        configureApi()
     }
     
     func addViews() {
@@ -42,6 +46,11 @@ class HomeViewController: UIViewController {
     
     func setConstraints() {
         tableViewConstraints()
+    }
+    
+    private func configureApi() {
+        api = ApiProcessor()
+        api.apiRequestDelegate = self
     }
     
     private func configureSearchBar() {
