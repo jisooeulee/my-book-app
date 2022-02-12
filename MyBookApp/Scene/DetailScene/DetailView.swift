@@ -15,7 +15,7 @@ class DetailView: UIView {
         didSet {
             guard let item = self.item else { return }
             
-            FirebaseProcessor.shared.searchBookInfo(keyword: item.id) { result in
+            FirebaseProcessor.shared.searchBookInfo(item.id) { result in
                 ReadStatus.shared.isRead = result
                 
                 if ReadStatus.shared.isRead {
