@@ -78,3 +78,14 @@ public enum PropertyName {
     static let authors = "authors"
     static let description = "description"
 }
+
+public enum ViewControllerName: String {
+    case homeViewController = "HomeViewController"
+    case detailViewController = "DetailViewController"
+    case myBookListViewController = "MyBookListViewController"
+}
+
+public enum ViewName: String {
+    case detailView = "DetailView"
+    case detailInfoView = "DetailInfoView"
+}

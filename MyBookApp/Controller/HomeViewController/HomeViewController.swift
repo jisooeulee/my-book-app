@@ -30,10 +30,12 @@ class HomeViewController: UIViewController {
         setConstraints()
     }
     
+    // MARK: - Setup UI
+    
     func setup() {
-        guard let navigationController = navigationController else { return }
+        setBackgroundColor(ViewControllerName.homeViewController)
+        setNavigationProperty(of: navigationController, ViewControllerName.homeViewController)
         
-        setHomeViewProperty(of: navigationController)
         configureSearchBar()
         configureTableView()
         configureActivityIndicator()

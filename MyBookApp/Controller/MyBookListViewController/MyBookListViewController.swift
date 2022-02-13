@@ -24,7 +24,9 @@ class MyBookListViewController: UIViewController {
     // MARK: - Setup UI
 
     func setup() {
-        setMyBookListViewProperty()
+        setBackgroundColor(ViewControllerName.myBookListViewController)
+        setNavigationProperty(of: nil, ViewControllerName.myBookListViewController)
+        
         configureTableView()
         configureActivityIndicator()
     }
