@@ -28,7 +28,15 @@ class DetailViewController: UIViewController {
     
     // MARK: - Setup UI
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        detailView.contentScrollView.contentSize = CGSize(width: view.frame.width, height: 700)
+    }
+    
     func setup() {
+        guard let navigationController = navigationController else { return }
+        
+        setDetailViewProperty(of: navigationController)
         configureReadCheckButton()
         configureTitleButton()
     }

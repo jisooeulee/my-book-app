@@ -45,6 +45,11 @@ class DetailView: UIView {
     
     // MARK: - Create UI
     
+    let contentScrollView: UIScrollView = {
+        let sv = UIScrollView()
+        return sv
+    }()
+    
     let readCheckButton: UIButton = {
         let bt = UIButton()
         bt.setImage(UIImage(named: Symbols.nonChecked), for: .normal)
@@ -133,19 +138,21 @@ class DetailView: UIView {
     }
     
     func addViews() {
-        addSubview(mainImageView)
-        addSubview(titleButton)
-        addSubview(readCheckButton)
-        addSubview(authorsLabel)
-        addSubview(descriptionTextView)
-        addSubview(retailPriceLabel)
-        addSubview(detailInfoStackView)
+        addSubview(contentScrollView)
+        contentScrollView.addSubview(readCheckButton)
+        contentScrollView.addSubview(mainImageView)
+        contentScrollView.addSubview(titleButton)
+        contentScrollView.addSubview(authorsLabel)
+        contentScrollView.addSubview(descriptionTextView)
+        contentScrollView.addSubview(retailPriceLabel)
+        contentScrollView.addSubview(detailInfoStackView)
     }
     
     func setConstraints() {
+        contentScrollViewConstraints()
+        readCheckImageViewConstraints()
         mainImageViewConstraints()
         titleButtonConstraints()
-        readCheckImageViewConstraints()
         authorsLabelConstraints()
         descriptionTextViewConstraints()
         retailPriceLabelConstraints()
@@ -154,22 +161,31 @@ class DetailView: UIView {
     
     // MARK: - Set Constraints
     
+    private func contentScrollViewConstraints() {
+        contentScrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        contentScrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+        contentScrollView.widthAnchor.constraint(equalTo: widthAnchor).isActive = true
+        contentScrollView.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
+        contentScrollView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+    }
+    
     private func readCheckImageViewConstraints() {
         readCheckButton.translatesAutoresizingMaskIntoConstraints = false
         
-        readCheckButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor).isActive = true
+        readCheckButton.topAnchor.constraint(equalTo: contentScrollView.topAnchor, constant: 30).isActive = true
         readCheckButton.widthAnchor.constraint(equalToConstant: 20).isActive = true
         readCheckButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        readCheckButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
+        readCheckButton.centerXAnchor.constraint(equalTo: titleButton.trailingAnchor, constant: -30).isActive = true
     }
     
     private func mainImageViewConstraints() {
         mainImageView.translatesAutoresizingMaskIntoConstraints = false
         
-        mainImageView.topAnchor.constraint(equalTo: readCheckButton.bottomAnchor, constant: 12).isActive = true
+        mainImageView.topAnchor.constraint(equalTo: readCheckButton.bottomAnchor, constant: 30).isActive = true
         mainImageView.widthAnchor.constraint(equalToConstant: 110).isActive = true
         mainImageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
-        mainImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        mainImageView.centerXAnchor.constraint(equalTo: contentScrollView.centerXAnchor).isActive = true
     }
     
     private func titleButtonConstraints() {
@@ -178,7 +194,7 @@ class DetailView: UIView {
         titleButton.topAnchor.constraint(equalTo: mainImageView.bottomAnchor, constant: 20).isActive = true
         titleButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.9).isActive = true
         titleButton.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        titleButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        titleButton.centerXAnchor.constraint(equalTo: contentScrollView.centerXAnchor).isActive = true
     }
     
     private func authorsLabelConstraints() {
@@ -187,7 +203,7 @@ class DetailView: UIView {
         authorsLabel.topAnchor.constraint(equalTo: titleButton.bottomAnchor, constant: 3).isActive = true
         authorsLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.9).isActive = true
         authorsLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
-        authorsLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        authorsLabel.centerXAnchor.constraint(equalTo: contentScrollView.centerXAnchor).isActive = true
     }
     
     private func retailPriceLabelConstraints() {
@@ -196,25 +212,25 @@ class DetailView: UIView {
         retailPriceLabel.topAnchor.constraint(equalTo: authorsLabel.bottomAnchor, constant: 15).isActive = true
         retailPriceLabel.widthAnchor.constraint(equalToConstant: 80).isActive = true
         retailPriceLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
-        retailPriceLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
+        retailPriceLabel.centerXAnchor.constraint(equalTo: authorsLabel.trailingAnchor, constant: -50).isActive = true
     }
     
     private func descriptionTextViewConstraints() {
         descriptionTextView.translatesAutoresizingMaskIntoConstraints = false
         
-        descriptionTextView.topAnchor.constraint(equalTo: retailPriceLabel.bottomAnchor, constant: 20).isActive = true
+        descriptionTextView.topAnchor.constraint(equalTo: retailPriceLabel.bottomAnchor, constant: 40).isActive = true
         descriptionTextView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.9).isActive = true
         descriptionTextView.heightAnchor.constraint(equalToConstant: 110).isActive = true
-        descriptionTextView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        descriptionTextView.centerXAnchor.constraint(equalTo: contentScrollView.centerXAnchor).isActive = true
     }
     
     private func detailInfoStackViewConstraints() {
         detailInfoStackView.translatesAutoresizingMaskIntoConstraints = false
         
-        detailInfoStackView.topAnchor.constraint(equalTo: descriptionTextView.bottomAnchor, constant: 20).isActive = true
+        detailInfoStackView.topAnchor.constraint(equalTo: descriptionTextView.bottomAnchor, constant: 30).isActive = true
         detailInfoStackView.widthAnchor.constraint(equalTo: descriptionTextView.widthAnchor).isActive = true
         detailInfoStackView.heightAnchor.constraint(equalToConstant: 90).isActive = true
-        detailInfoStackView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        detailInfoStackView.centerXAnchor.constraint(equalTo: contentScrollView.centerXAnchor).isActive = true
     }
     
 }
