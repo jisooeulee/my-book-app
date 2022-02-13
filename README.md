@@ -14,10 +14,10 @@ MVC Pattern
 Firebase: Realtime Database
 
 ## Library
-Alamofire
-Firebase
-Kingfisher
-SPAlert
+* Alamofire
+* Firebase
+* Kingfisher
+* SPAlert
 
 ## Api
 Google Books Api (https://developers.google.com/books/docs/v1/using)
