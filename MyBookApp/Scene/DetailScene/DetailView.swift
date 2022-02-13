@@ -134,7 +134,7 @@ class DetailView: UIView {
     // MARK: - Setup UI
     
     func setup() {
-        setDetailViewProperty()
+        setViewBackgroundColor(ViewName.detailView)
     }
     
     func addViews() {

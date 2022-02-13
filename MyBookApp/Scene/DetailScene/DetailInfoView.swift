@@ -33,7 +33,7 @@ class DetailInfoView: UIView {
         return lb
     }()
     
-   // MARK: - Init
+    // MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -51,7 +51,8 @@ class DetailInfoView: UIView {
     // MARK: - Setup UI
     
     func setup() {
-        setDetailInfoViewProperty()
+        setViewBackgroundColor(ViewName.detailInfoView)
+        setCornerRadius(cornerRadius: 4, masksToBounds: false)
     }
     
     func addViews() {

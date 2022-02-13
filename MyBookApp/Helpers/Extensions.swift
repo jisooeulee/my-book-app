@@ -29,13 +29,13 @@ extension UIView {
         layer.masksToBounds = masksToBounds
     }
     
-    func setDetailViewProperty() {
-        backgroundColor = ColorTheme.customDarkNavi.color
-    }
-    
-    func setDetailInfoViewProperty() {
-        backgroundColor = ColorTheme.customLightNavi.color
-        setCornerRadius(cornerRadius: 4, masksToBounds: false)
+    func setViewBackgroundColor(_ viewName: ViewName) {
+        switch viewName {
+        case .detailView:
+            backgroundColor = ColorTheme.customDarkNavi.color
+        case .detailInfoView:
+            backgroundColor = ColorTheme.customLightNavi.color
+        }
     }
     
 }
@@ -58,21 +58,39 @@ extension UIViewController {
         alertView.present()
     }
     
-    // MARK: - Setting of HomeView, MyBookListView
+    // MARK: - Setting of BackgroundColor, Navigation Controller
     
-    func setHomeViewProperty(of navigationController: UINavigationController) {
-        view.backgroundColor = ColorTheme.customLightBlue.color
+    func setBackgroundColor(_ controllerName: ViewControllerName) {
+        switch controllerName {
+        case .homeViewController:
+            view.backgroundColor = ColorTheme.customLightBlue.color
+            
+        case .detailViewController:
+            view.backgroundColor = ColorTheme.customDarkNavi.color
+            
+        case .myBookListViewController:
+            view.backgroundColor = ColorTheme.customDarkNavi.color
+        }
+    }
+    
+    func setNavigationProperty(of navigationController: UINavigationController?, _ controllerName: ViewControllerName) {
+        guard let navigationController = navigationController else { return }
         
+        navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController.navigationBar.prefersLargeTitles = true
         navigationController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationController.navigationBar.tintColor = .white
         
-        navigationItem.title = Text.navigationItemTitle
-    }
-    
-    func setMyBookListViewProperty() {
-        navigationController?.isNavigationBarHidden = true
-        view.backgroundColor = ColorTheme.customDarkNavi.color
+        switch controllerName {
+        case .homeViewController:
+            navigationItem.title = Text.navigationItemTitle
+            
+        case .detailViewController:
+            navigationController.navigationBar.barTintColor = ColorTheme.customDarkNavi.color
+            
+        case .myBookListViewController:
+            navigationController.isNavigationBarHidden = true
+        }
     }
     
     // MARK: - Setting of TableView

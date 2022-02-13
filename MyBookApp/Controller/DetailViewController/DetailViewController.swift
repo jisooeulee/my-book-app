@@ -34,9 +34,9 @@ class DetailViewController: UIViewController {
     }
     
     func setup() {
-        guard let navigationController = navigationController else { return }
+        setBackgroundColor(ViewControllerName.detailViewController)
+        setNavigationProperty(of: navigationController, ViewControllerName.detailViewController)
         
-        setDetailViewProperty(of: navigationController)
         configureReadCheckButton()
         configureTitleButton()
     }
