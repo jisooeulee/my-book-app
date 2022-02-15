@@ -18,7 +18,7 @@ struct Item: Codable {
 }
 
 struct VolumeInfo: Codable {
-    let title: String?
+    let title: String
     let authors: [String]?
     let publishedDate: String?
     let imageLinks: ImageLinks?
