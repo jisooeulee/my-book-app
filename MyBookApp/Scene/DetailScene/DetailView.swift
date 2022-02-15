@@ -26,11 +26,11 @@ class DetailView: UIView {
             }
             
             titleButton.setTitle(item.volumeInfo.title, for: .normal)
-            authorsLabel.text = item.volumeInfo.authors?.joined(separator: ", ") ?? Text.noInfo
+            authorsLabel.text = item.volumeInfo.authors?.joined(separator: ", ") ?? Text.noAuthorInfo
             let currencyCode = item.saleInfo?.retailPrice?.currencyCode ?? ""
             let retailPrice = item.saleInfo?.retailPrice?.amount?.description ?? Text.noInfo
             retailPriceLabel.text = "\(currencyCode) \(retailPrice.description)"
-            descriptionTextView.text = item.volumeInfo.description ?? Text.noInfo
+            descriptionTextView.text = item.volumeInfo.description ?? Text.noDescriptionInfo
             
             detailInfoStackView.categoriesView.mainTitleLabel.text = Text.categoriesView
             detailInfoStackView.categoriesView.contentLabel.text = item.volumeInfo.categories?.joined(separator: ", ") ?? Text.noInfo

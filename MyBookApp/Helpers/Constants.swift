@@ -31,6 +31,12 @@ public enum Text {
     static let registered = "Registered!"
     
     /// authorsLabel's default Text
+    static let noAuthorInfo = "No Author Info"
+    
+    /// descriptionLabel's default Text
+    static let noDescriptionInfo = "No Description Info"
+    
+    /// common default Text
     static let noInfo = "No Info"
     
     /// Detail Info View Main Title
