@@ -19,14 +19,19 @@ class FirebaseService {
     /// 本の情報をDBに保存する
     func writeReadBookInfo(item: Item) {
         let id = item.id
-        let imageUrl = item.volumeInfo.imageLinks?.thumbnail ?? ImageUrl.defaultThumbnail
-        let authors = item.volumeInfo.authors?.joined(separator: ", ") ?? Text.noAuthorInfo
+        let imageLinks = item.volumeInfo.imageLinks?.thumbnail ?? ImageUrl.defaultThumbnail
+        let authors = item.volumeInfo.authors ?? [Text.noAuthorInfo]
         let title = item.volumeInfo.title
         let description = item.volumeInfo.description ?? Text.noDescriptionInfo
         
         let boookItemRef = bookRef.child(id)
         let itemValues: [String: Any] = [
-            PropertyName.isRead: true, PropertyName.id: id, PropertyName.imageUrl: imageUrl, PropertyName.title: title, PropertyName.authors: authors, PropertyName.description: description,
+            PropertyName.isRead: true,
+            PropertyName.id: id,
+            PropertyName.imageLinks: [PropertyName.thumbnail: imageLinks],
+            PropertyName.title: title,
+            PropertyName.authors: authors,
+            PropertyName.description: description,
         ]
         
         boookItemRef.setValue(itemValues)
@@ -56,17 +61,18 @@ class FirebaseService {
                 return
             }
             
-            for volumeInfo in value.values {
-                let id = volumeInfo[PropertyName.id] as! String
-                let imageUrl = volumeInfo[PropertyName.imageUrl] as! String
-                let title = volumeInfo[PropertyName.title] as! String
-                let authors = volumeInfo[PropertyName.authors] as! String
-                let description = volumeInfo[PropertyName.description] as! String
+            for item in value.values {
+                let id = item[PropertyName.id] as! String
                 
-                let volumesInfo = VolumeInfo(title: title, authors: [authors], publishedDate: nil, imageLinks: ImageLinks(smallThumbnail: nil, thumbnail: imageUrl), description: description, googleBooksWebLink: nil, categories: nil, publisher: nil, pageCount: nil)
-                
-                let item = Item(id: id, volumeInfo: volumesInfo, saleInfo: nil)
-                items.append(item)
+                do {
+                    let data = try JSONSerialization.data(withJSONObject: item, options: [])
+                    
+                    let volumeInfo = try JSONDecoder().decode(VolumeInfo.self, from: data)
+                    items.append(Item(id: id, volumeInfo: volumeInfo, saleInfo: nil))
+                    
+                } catch {
+                    print(error)
+                }
             }
             completion(items)
         }
