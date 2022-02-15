@@ -16,8 +16,8 @@ class BookCell: UITableViewCell {
             guard let item = self.item else { return }
             
             titleLabel.text = item.volumeInfo.title
-            authorsLabel.text = item.volumeInfo.authors?.joined(separator: ", ") ?? Text.noInfo
-            descriptionLabel.text = item.volumeInfo.description ?? ""
+            authorsLabel.text = item.volumeInfo.authors?.joined(separator: ", ") ?? Text.noAuthorInfo
+            descriptionLabel.text = item.volumeInfo.description ?? Text.noDescriptionInfo
         }
     }
     

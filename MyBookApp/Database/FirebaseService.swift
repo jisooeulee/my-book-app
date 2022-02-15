@@ -20,9 +20,9 @@ class FirebaseService {
     func writeReadBookInfo(item: Item) {
         let id = item.id
         let imageUrl = item.volumeInfo.imageLinks?.thumbnail ?? ImageUrl.defaultThumbnail
-        let authors = item.volumeInfo.authors?.joined(separator: ", ") ?? Text.noInfo
-        let title = item.volumeInfo.title ?? Text.noInfo
-        let description = item.volumeInfo.description ?? Text.noInfo
+        let authors = item.volumeInfo.authors?.joined(separator: ", ") ?? Text.noAuthorInfo
+        let title = item.volumeInfo.title
+        let description = item.volumeInfo.description ?? Text.noDescriptionInfo
         
         let boookItemRef = bookRef.child(id)
         let itemValues: [String: Any] = [
