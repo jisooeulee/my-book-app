@@ -79,7 +79,8 @@ public enum SelectedTab {
 public enum PropertyName {
     static let isRead = "isRead"
     static let id = "id"
-    static let imageUrl = "imageUrl"
+    static let imageLinks = "imageLinks"
+    static let thumbnail = "thumbnail"
     static let title = "title"
     static let authors = "authors"
     static let description = "description"
