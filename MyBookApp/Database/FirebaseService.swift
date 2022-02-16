@@ -52,12 +52,12 @@ class FirebaseService {
     }
     
     /// 読んだ本のリストを取得する
-    func fetchBookInfo(completion: @escaping (_ result: [Item]) -> Void) {
+    func fetchBookInfo(completion: @escaping (_ result: [Item]?) -> Void) {
         var items: [Item] = []
         
         bookRef.observeSingleEvent(of: .value) { snapshot in
             guard let value = snapshot.value as? [String: AnyObject] else {
-                completion(items)
+                completion(nil)
                 return
             }
             

@@ -30,7 +30,7 @@ extension TabBarController {
                     guard let self = self else { return }
                     
                     // 検索キーワードと一致する本の情報がない場合
-                    if result.isEmpty {
+                    guard let result = result else {
                         self.readBookListVC.indicator.stopAnimating()
                         self.showNoDataAlert()
                         
