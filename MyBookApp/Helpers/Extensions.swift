@@ -93,6 +93,13 @@ extension UIViewController {
         }
     }
     
+    // MARK: - Setting of Indicator
+    func setIndicatorProperty(of indicator: UIActivityIndicatorView) {
+        indicator.style = UIActivityIndicatorView.Style.large
+        indicator.color = ColorTheme.customMint.color
+        indicator.center = self.view.center
+    }
+    
     // MARK: - Setting of TableView
     
     func setTableViewProperty(of tableView: UITableView) {
